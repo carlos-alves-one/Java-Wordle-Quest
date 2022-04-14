@@ -62,9 +62,10 @@ public class Main {
         System.out.print(TEXT_BLUE);
 
         /* print the word in the console we are looking for */
-        getTarget();
+        String wordle = getTarget();
 
-        // TODO...
+        /* run game */
+        new WordleGame();
     }
 
     //use this method for selecting a word. It's important for marking that the word you have selected is printed out to the console!

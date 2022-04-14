@@ -26,23 +26,7 @@ public class Main {
     //a smaller list of words for selecting the target word from (i.e. the word the player needs to guess)
     public static ArrayList<String> targetWords = new ArrayList<>();
 
-    protected static final String COLOR_YELLOW = "\033[0;33m";
-    protected static final String COLOR_RESET = "\033[0m";
-
     public static void main(String[] args) {
-
-
-        System.out.print(TEXT_GREEN);
-        System.out.println("""
-
-                ██╗    ██╗ ██████╗ ██████╗ ██████╗ ██╗     ███████╗
-                ██║    ██║██╔═══██╗██╔══██╗██╔══██╗██║     ██╔════╝
-                ██║ █╗ ██║██║   ██║██████╔╝██║  ██║██║     █████╗ \s
-                ██║███╗██║██║   ██║██╔══██╗██║  ██║██║     ██╔══╝ \s
-                ╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝███████╗███████╗
-                 ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
-                """);
-        System.out.print(COLOR_RESET);
 
         //load in the two word lists
         try{
@@ -60,6 +44,26 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        /* starting code from here... */
+
+        /* print welcome text in the console */
+        System.out.print(TEXT_GREEN);
+        System.out.println("""
+
+                ██╗    ██╗ ██████╗ ██████╗ ██████╗ ██╗     ███████╗
+                ██║    ██║██╔═══██╗██╔══██╗██╔══██╗██║     ██╔════╝
+                ██║ █╗ ██║██║   ██║██████╔╝██║  ██║██║     █████╗\s
+                ██║███╗██║██║   ██║██╔══██╗██║  ██║██║     ██╔══╝\s
+                ╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝███████╗███████╗
+                 ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
+                """);
+        System.out.print(TEXT_WHITE);
+
+        /* print word into the console we are looking for */
+        getTarget();
+
+        // TODO...
     }
 
     //use this method for selecting a word. It's important for marking that the word you have selected is printed out to the console!
@@ -67,7 +71,7 @@ public class Main {
         Random r = new Random();
         String target = targetWords.get(r.nextInt(targetWords.size()));
         //don't delete this line.
-        System.out.println(target);
+        System.out.println("** The Word: " + target);
         return target;
     }
 }

@@ -26,7 +26,7 @@ public class WordleGame extends JFrame {
     static class WordPanel extends JPanel {
 
         /* declare an array of 5 labels to display each letter of the word */
-        JLabel[] wordColumns = new JLabel[5];
+        JLabel[] wordLetters = new JLabel[5];
 
         /* declare default constructor */
         public WordPanel() {
@@ -35,15 +35,31 @@ public class WordleGame extends JFrame {
             this.setLayout(new GridLayout(1,5));
 
             /* for loop to initialize each individual labels inside the array */
+
+            /* declare variable to use the border factory to create an instance */
+            Border borderColor = BorderFactory.createLineBorder(Color.LIGHT_GRAY);
+
             for (int i = 0; i < 5; i++) {
-                wordColumns[i] = new JLabel();
+                wordLetters[i] = new JLabel();
 
                 /* set the opacity of the label */
-                wordColumns[i].setOpaque(true);
+                wordLetters[i].setOpaque(true);
+
+                /* add the border color of the label */
+                wordLetters[i].setBorder(borderColor);
 
                 /* each of five labels boxes will be added in a single row */
-                this.add(wordColumns[i]);
+                this.add(wordLetters[i]);
             }
+        }
+
+        /* declare method to set up value inside this panel */
+        public  void setPanelText(String charValue, int position, Color color) {
+
+            /* call array using the position to set up the character value and background color */
+            this.wordLetters[position].setText(charValue);
+            this.wordLetters[position].setBackground(color);
+
         }
     }
 

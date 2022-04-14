@@ -73,7 +73,7 @@ public class Main {
         Random r = new Random();
         String target = targetWords.get(r.nextInt(targetWords.size()));
         //don't delete this line.
-        System.out.println("** The word we are looking for: " + target);
+        System.out.println("** The word we are looking for -->> " + target);
         return target;
     }
 }

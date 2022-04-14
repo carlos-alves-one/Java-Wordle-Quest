@@ -102,4 +102,27 @@ public class WordleGame extends JFrame {
 
     /* declare a counter to indicate the position in the word panel array */
     private int counter = 0;
+
+    /* declare default constructor of the class */
+    public WordleGame() {
+
+        /* initialize the components */
+        wordleGameFrame = new JFrame("** Wordle Game"); // pass the game heading
+        wordleGameFrame.setSize(300,300); // set the size of the frame
+        wordleGameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // allows the user close the game
+        wordleGameFrame.setLayout(new GridLayout(7,1)); // set up layout of the frame with rows and columns
+        wordleGameFrame.setVisible(true); // enable the frame be visible
+        wordleGameFrame.setLocationRelativeTo(null); // set up position of the frame at the center
+
+        /* initialize the word array panel */
+        for (int i = 0; i < 6; i++) {
+            wordArrayPanel[i] = new WordPanel();
+            wordleGameFrame.add(wordArrayPanel[i]);
+        }
+
+        /* initialize and add user panel */
+        userPanel = new UserPanel();
+        wordleGameFrame.add(userPanel);
+    }
+
 }

@@ -23,6 +23,7 @@ import java.util.Random;
 /* declare and extend the class to include JFrame */
 public class WordleGame extends JFrame {
 
+    /* declare class to display words on the panel */
     static class WordPanel extends JPanel {
 
         /* declare an array of 5 labels to display each letter of the word */
@@ -54,13 +55,36 @@ public class WordleGame extends JFrame {
         }
 
         /* declare method to set up value inside this panel */
-        public  void setPanelText(String charValue, int position, Color color) {
+        public  void setPanelText(String charVal, int index, Color color) {
 
-            /* call array using the position to set up the character value and background color */
-            this.wordLetters[position].setText(charValue);
-            this.wordLetters[position].setBackground(color);
-
+            /* call array using the index (position) to set up the character value and background color */
+            this.wordLetters[index].setText(charVal);
+            this.wordLetters[index].setBackground(color);
         }
     }
 
+    /* declare class to accept the user inputs */
+    static class UserPanel extends JPanel {
+
+        /* instantiate the text fields and enter button */
+        private final JTextField userData;
+        private final JButton enterButton;
+
+        /* declare default constructor */
+        public UserPanel() {
+
+            /* setup layout for text and the button with one row and two columns */
+            this.setLayout(new GridLayout(1, 2));
+
+            /* initialize the text and the button */
+            userData = new JTextField();
+            enterButton = new JButton("ENTER");
+        }
+
+        /* declare getters */
+        public JTextField getUserInput() {return userData;}
+        public JButton getEnterButton() {return enterButton;}
+
+
+    }
 }

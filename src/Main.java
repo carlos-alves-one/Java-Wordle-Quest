@@ -26,7 +26,24 @@ public class Main {
     //a smaller list of words for selecting the target word from (i.e. the word the player needs to guess)
     public static ArrayList<String> targetWords = new ArrayList<>();
 
+    protected static final String COLOR_YELLOW = "\033[0;33m";
+    protected static final String COLOR_RESET = "\033[0m";
+
     public static void main(String[] args) {
+
+
+        System.out.print(TEXT_GREEN);
+        System.out.println("""
+
+                ██╗    ██╗ ██████╗ ██████╗ ██████╗ ██╗     ███████╗
+                ██║    ██║██╔═══██╗██╔══██╗██╔══██╗██║     ██╔════╝
+                ██║ █╗ ██║██║   ██║██████╔╝██║  ██║██║     █████╗ \s
+                ██║███╗██║██║   ██║██╔══██╗██║  ██║██║     ██╔══╝ \s
+                ╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝███████╗███████╗
+                 ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
+                """);
+        System.out.print(COLOR_RESET);
+
         //load in the two word lists
         try{
             Scanner in_dict  = new Scanner(new File("gameDictionary.txt"));

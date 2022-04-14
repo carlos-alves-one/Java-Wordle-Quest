@@ -5,6 +5,7 @@
  * Created..: 12/04/2022
  */
 
+/* declare all libraries to be used on this class */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -50,17 +51,17 @@ public class Main {
         /* print welcome text in the console */
         System.out.print(TEXT_GREEN);
         System.out.println("""
-
+                
                 ██╗    ██╗ ██████╗ ██████╗ ██████╗ ██╗     ███████╗
                 ██║    ██║██╔═══██╗██╔══██╗██╔══██╗██║     ██╔════╝
-                ██║ █╗ ██║██║   ██║██████╔╝██║  ██║██║     █████╗\s
-                ██║███╗██║██║   ██║██╔══██╗██║  ██║██║     ██╔══╝\s
+                ██║ █╗ ██║██║   ██║██████╔╝██║  ██║██║     █████╗
+                ██║███╗██║██║   ██║██╔══██╗██║  ██║██║     ██╔══╝
                 ╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝███████╗███████╗
                  ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
                 """);
-        System.out.print(TEXT_WHITE);
+        System.out.print(TEXT_BLUE);
 
-        /* print word into the console we are looking for */
+        /* print the word in the console we are looking for */
         getTarget();
 
         // TODO...
@@ -71,7 +72,7 @@ public class Main {
         Random r = new Random();
         String target = targetWords.get(r.nextInt(targetWords.size()));
         //don't delete this line.
-        System.out.println("** The Word: " + target);
+        System.out.println("** The word we are looking for: " + target);
         return target;
     }
 }

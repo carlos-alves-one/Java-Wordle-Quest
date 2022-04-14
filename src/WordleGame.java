@@ -87,4 +87,19 @@ public class WordleGame extends JFrame {
 
 
     }
+
+    /* define JFrame which hold the entire game */
+    private JFrame wordleGameFrame;
+
+    /* declare an array of six word panels  */
+    private final WordPanel[] wordArrayPanel = new WordPanel[6];
+
+    /* declare the user panel */
+    private UserPanel userPanel;
+
+    /* declare the word we're going to look forward */
+    private String wordle;
+
+    /* declare a counter to indicate the position in the word panel array */
+    private int counter = 0;
 }

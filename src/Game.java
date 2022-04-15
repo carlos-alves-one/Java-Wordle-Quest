@@ -36,7 +36,7 @@ public class Game extends JFrame implements KeyListener{
 
         /* set color, font type and size of the text */
         label.setForeground(Color.GREEN);
-        label.setFont(new Font("MV Boli", Font.BOLD,18));
+        label.setFont(new Font("MV Bold", Font.BOLD,18));
         label.setIconTextGap(20); // set gap of text to image
 
         /* set and display background color plus border of the label */
@@ -50,6 +50,7 @@ public class Game extends JFrame implements KeyListener{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
         frame.setSize(469,500);
+        frame.addKeyListener(this);
         frame.setVisible(true);
 
         /* set up position of the frame at the center of the screen */
@@ -60,16 +61,22 @@ public class Game extends JFrame implements KeyListener{
     }
 
     @Override
+    /* Invoked when a key is typed. Uses keyChar, char output */
     public void keyTyped(KeyEvent e) {
 
     }
 
     @Override
+    /* Invoked when a physical key is pressed down. Uses KeyCode, int output */
     public void keyPressed(KeyEvent e) {
-        System.out.println("You pressed key char: " + e.getKeyChar());
+        if (e.getKeyCode() == 10) {
+            System.out.println(Main.TEXT_RED + ">> Enter key pressed ** program it will terminate...");
+            System.exit(0);
+        }
     }
 
     @Override
+    /* Called whenever a button is released */
     public void keyReleased(KeyEvent e) {
 
     }

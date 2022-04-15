@@ -35,11 +35,10 @@ public class WordleGame extends JFrame {
             /* declare the layout for the panel with one row and five columns */
             this.setLayout(new GridLayout(1,5));
 
-            /* for loop to initialize each individual labels inside the array */
-
             /* declare variable to use the border factory to create an instance */
             Border borderColor = BorderFactory.createLineBorder(Color.LIGHT_GRAY);
 
+            /* for loop to initialize each individual labels inside the array */
             for (int i = 0; i < 5; i++) {
                 wordLetters[i] = new JLabel();
 
@@ -55,18 +54,18 @@ public class WordleGame extends JFrame {
         }
 
         /* declare method to set up value inside this panel */
-        public  void setPanelText(String charVal, int index, Color color) {
+        public  void setPanelText(String charVal, Color color, int index) {
 
-            /* call array using the index (position) to set up the character value and background color */
-            this.wordLetters[index].setText(charVal);
+            /* call array using the index (position) to set up the background color and character value */
             this.wordLetters[index].setBackground(color);
+            this.wordLetters[index].setText(charVal);
         }
     }
 
     /* declare class to accept the user inputs */
     static class UserPanel extends JPanel {
 
-        /* instantiate the text fields and enter button */
+        /* instantiate the text field and enter button */
         private final JTextField userData;
         private final JButton enterButton;
 
@@ -82,7 +81,7 @@ public class WordleGame extends JFrame {
         }
 
         /* declare getters */
-        public JTextField getUserInput() {return userData;}
+        public JTextField getUserData() {return userData;}
         public JButton getEnterButton() {return enterButton;}
 
 
@@ -108,13 +107,19 @@ public class WordleGame extends JFrame {
 
         /* initialize the components */
         wordleGameFrame = new JFrame("** Wordle Game"); // pass the game heading
-        wordleGameFrame.setSize(300,300); // set the size of the frame
-        wordleGameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // allows the user close the game
-        wordleGameFrame.setLayout(new GridLayout(7,1)); // set up layout of the frame with rows and columns
-        wordleGameFrame.setVisible(true); // enable the frame be visible
-        wordleGameFrame.setLocationRelativeTo(null); // set up position of the frame at the center
+        wordleGameFrame.setSize(320,320); // set the size of the frame
 
-        /* initialize the word array panel */
+        /* allows the user to stop and close the game */
+        wordleGameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        /* set up layout of the frame with rows and columns */
+        wordleGameFrame.setLayout(new GridLayout(7,1));
+        wordleGameFrame.setVisible(true); // enable the frame be visible
+
+        /* set up position of the frame at the center of the screen */
+        wordleGameFrame.setLocationRelativeTo(null);
+
+        /* initialize the six individuals word array panels */
         for (int i = 0; i < 6; i++) {
             wordArrayPanel[i] = new WordPanel();
             wordleGameFrame.add(wordArrayPanel[i]);
@@ -123,6 +128,7 @@ public class WordleGame extends JFrame {
         /* initialize and add user panel */
         userPanel = new UserPanel();
         wordleGameFrame.add(userPanel);
+        wordleGameFrame.revalidate();
     }
 
 }

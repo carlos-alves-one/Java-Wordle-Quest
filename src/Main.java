@@ -48,7 +48,7 @@ public class Main {
 
         /* starting code from here... */
 
-        /* print welcome text in the console */
+        /* print the word wordle in the console */
         System.out.print(TEXT_GREEN);
         System.out.println("""
                 
@@ -65,7 +65,7 @@ public class Main {
         String wordle = getTarget();
 
         /* run game */
-        new WordleGame();
+        new Game();
     }
 
     //use this method for selecting a word. It's important for marking that the word you have selected is printed out to the console!

@@ -17,9 +17,9 @@ import java.text.DecimalFormat;
 
 
 /* declare and extend the class to include JFrame */
-public class Game {
+public class Game extends JFrame implements KeyListener{
 
-    public static void main(String[] args) {
+    public Game() {
 
         /* declare image */
         ImageIcon image = new ImageIcon("wordle.png");
@@ -57,5 +57,20 @@ public class Game {
 
         /* add label to the frame */
         frame.add(label);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println("You pressed key char: " + e.getKeyChar());
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

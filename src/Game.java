@@ -7,6 +7,7 @@
 
 /* declare all libraries to be used on this class */
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -23,6 +24,9 @@ public class Game {
         /* declare image */
         ImageIcon image = new ImageIcon("wordle.png");
 
+        /* create border for frame */
+        Border border = BorderFactory.createLineBorder(Color.GREEN,3);
+
         /* create label and set the text with position */
         JLabel label = new JLabel();
         label.setText("Please press enter to start the game");
@@ -35,13 +39,16 @@ public class Game {
         label.setFont(new Font("MV Boli", Font.BOLD,18));
         label.setIconTextGap(20); // set gap of text to image
 
-        /* set background color of the label */
+        /* set and display background color plus border of the label */
         label.setBackground(Color.black);
         label.setOpaque(true);
+        label.setBorder(border);
 
         /* create and setup frame */
         JFrame frame = new JFrame();
+        frame.setTitle("## WORDLE GAME - WELCOME ##");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false); // prevents frame from being resized
         frame.setSize(469,500);
         frame.setVisible(true);
 

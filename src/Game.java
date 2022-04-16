@@ -5,20 +5,17 @@
  * Created..: 15/04/2022
  */
 
-/* declare all libraries to be used on this class */
+/* declare all libraries to be used with this class */
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.*;
-import java.lang.NumberFormatException;
-import java.text.DecimalFormat;
-
 
 /* declare and extend the class to include JFrame */
 public class Game extends JFrame implements KeyListener{
 
+    /* declare default constructor for this class */
     public Game() {
 
         /* declare image */
@@ -69,9 +66,12 @@ public class Game extends JFrame implements KeyListener{
     @Override
     /* Invoked when a physical key is pressed down. Uses KeyCode, int output */
     public void keyPressed(KeyEvent e) {
+
+        /* enter key pressed ** it will play the game */
         if (e.getKeyCode() == 10) {
-            System.out.println(Main.TEXT_RED + ">> Enter key pressed ** program it will terminate...");
-            System.exit(0);
+
+            /* play game */
+            new PlayGame();
         }
     }
 

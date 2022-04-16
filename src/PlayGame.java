@@ -15,17 +15,27 @@ public class PlayGame extends JFrame implements KeyListener {
     /* declare default constructor for this class */
     PlayGame() {
 
-        System.out.println("Play game...");
+        /* create and setup frame */
+        JFrame frame = new JFrame();
+        frame.setTitle("## WORDLE GAME - WELCOME ##");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false); // prevents frame from being resized
+        frame.setSize(469,500);
+        frame.addKeyListener(this);
+        frame.setVisible(true);
+
+        /* set up position of the frame at the center of the screen */
+        frame.setLocationRelativeTo(null);
     }
 
     @Override
-    /* Invoked when a key is typed. Uses keyChar, char output */
+    /* method invoked when a key is typed. Uses keyChar, char output */
     public void keyTyped(KeyEvent e) {
 
     }
 
     @Override
-    /* Invoked when a physical key is pressed down. Uses KeyCode, int output */
+    /* method invoked when a physical key is pressed down. Uses KeyCode, int output */
     public void keyPressed(KeyEvent e) {
 
         /* enter key pressed ** it will play the game */
@@ -36,7 +46,7 @@ public class PlayGame extends JFrame implements KeyListener {
     }
 
     @Override
-    /* Called whenever a button is released */
+    /* method called whenever a button is released */
     public void keyReleased(KeyEvent e) {
 
     }

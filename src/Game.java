@@ -15,6 +15,9 @@ import java.awt.event.KeyListener;
 /* declare and extend the class to include JFrame and Key Listener */
 public class Game extends JFrame implements KeyListener{
 
+    /* declare frame as global */
+    JFrame frame;
+
     /* declare default constructor for this class */
     public Game() {
 
@@ -42,7 +45,7 @@ public class Game extends JFrame implements KeyListener{
         label.setBorder(border);
 
         /* create and setup frame */
-        JFrame frame = new JFrame();
+        frame = new JFrame();
         frame.setTitle("## WORDLE GAME - WELCOME ##");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
@@ -58,25 +61,28 @@ public class Game extends JFrame implements KeyListener{
     }
 
     @Override
-    /* Invoked when a key is typed. Uses keyChar, char output */
+    /* method invoked when a key is typed. Uses keyChar, char output */
     public void keyTyped(KeyEvent e) {
 
     }
 
     @Override
-    /* Invoked when a physical key is pressed down. Uses KeyCode, int output */
+    /* method invoked when a physical key is pressed down. Uses KeyCode, int output */
     public void keyPressed(KeyEvent e) {
 
         /* enter key pressed ** it will play the game */
         if (e.getKeyCode() == 10) {
 
-            /* play game */
+            /* close current frame */
+            frame.dispose();
+
+            /* open new frame and play game */
             new PlayGame();
         }
     }
 
     @Override
-    /* Called whenever a button is released */
+    /* method called whenever a button is released */
     public void keyReleased(KeyEvent e) {
 
     }

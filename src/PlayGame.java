@@ -12,8 +12,14 @@ import java.awt.event.KeyListener;
 /* declare and extend the class to include JFrame and Key Listener */
 public class PlayGame extends JFrame implements KeyListener {
 
+
+
     /* declare default constructor for this class */
     PlayGame() {
+
+        /* pop up user to enter the name */
+        String namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
+        System.out.println("The player name is: " + namePlayer);
 
         /* create and setup frame */
         JFrame frame = new JFrame();

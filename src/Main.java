@@ -77,7 +77,8 @@ public class Main extends JPanel {
         new Game();
     }
 
-    //use this method for selecting a word. It's important for marking that the word you have selected is printed out to the console!
+    // use this method for selecting a word. It's important for marking that the word you have selected
+    // is printed out to the console!
     public static String getTarget(){
         Random r = new Random();
         String target = targetWords.get(r.nextInt(targetWords.size()));

@@ -44,24 +44,24 @@ public class PlayGame extends JFrame implements KeyListener {
 
         /* create panels */
         JPanel panelTitle = new JPanel();
-        JPanel panel2 = new JPanel();
-        JPanel panel3 = new JPanel();
-        JPanel panel4 = new JPanel();
-        JPanel panel5 = new JPanel();
+        JPanel panelWest = new JPanel();
+        JPanel panelEast = new JPanel();
+        JPanel panelKeyboard = new JPanel();
+        JPanel panelGrid = new JPanel();
 
         /* set background color of the panels */
         panelTitle.setBackground(Color.black);
-        panel2.setBackground(Color.black);
-        panel3.setBackground(Color.black);
-        panel4.setBackground(Color.magenta);
-        panel5.setBackground(Color.black);
+        panelWest.setBackground(Color.black);
+        panelEast.setBackground(Color.black);
+        panelKeyboard.setBackground(Color.black);
+        panelGrid.setBackground(Color.black);
 
         /* set size of the panels */
         panelTitle.setPreferredSize(new Dimension(100,50));
-        panel2.setPreferredSize(new Dimension(20,50));
-        panel3.setPreferredSize(new Dimension(20,50));
-        panel4.setPreferredSize(new Dimension(100,200));
-        panel5.setPreferredSize(new Dimension(100,50));
+        panelWest.setPreferredSize(new Dimension(20,50));
+        panelEast.setPreferredSize(new Dimension(20,50));
+        panelKeyboard.setPreferredSize(new Dimension(200,200));
+        panelGrid.setPreferredSize(new Dimension(100,50));
 
         /* create and setup frame */
         frame = new JFrame();
@@ -81,15 +81,72 @@ public class PlayGame extends JFrame implements KeyListener {
         /* GRID */
         Main.styleGrid();
         Main.addLabels();
-        panel5.add(Main.grid);
+        panelGrid.add(Main.grid);
+
+        /* create keyboard */
+        JButton buttonQ = new JButton("Q");
+        JButton buttonW = new JButton("W");
+        JButton buttonE = new JButton("E");
+        JButton buttonR = new JButton("R");
+        JButton buttonT = new JButton("T");
+        JButton buttonY = new JButton("Y");
+        JButton buttonU = new JButton("U");
+        JButton buttonI = new JButton("I");
+        JButton buttonO = new JButton("O");
+        JButton buttonP = new JButton("P");
+        JButton buttonA = new JButton("A");
+        JButton buttonS = new JButton("S");
+        JButton buttonD = new JButton("D");
+        JButton buttonF = new JButton("F");
+        JButton buttonG = new JButton("G");
+        JButton buttonH = new JButton("H");
+        JButton buttonJ = new JButton("J");
+        JButton buttonK = new JButton("K");
+        JButton buttonL = new JButton("L");
+        JButton buttonZ = new JButton("Z");
+        JButton buttonX = new JButton("X");
+        JButton buttonC = new JButton("C");
+        JButton buttonV = new JButton("V");
+        JButton buttonB = new JButton("B");
+        JButton buttonN = new JButton("N");
+        JButton buttonM = new JButton("M");
+        JButton buttonENTER = new JButton("ENTER");
+        JButton buttonDELETE = new JButton("DELETE");
+
+        panelKeyboard.add(buttonQ);
+        panelKeyboard.add(buttonW);
+        panelKeyboard.add(buttonE);
+        panelKeyboard.add(buttonR);
+        panelKeyboard.add(buttonT);
+        panelKeyboard.add(buttonY);
+        panelKeyboard.add(buttonU);
+        panelKeyboard.add(buttonI);
+        panelKeyboard.add(buttonO);
+        panelKeyboard.add(buttonP);
+        panelKeyboard.add(buttonA);
+        panelKeyboard.add(buttonS);
+        panelKeyboard.add(buttonD);
+        panelKeyboard.add(buttonF);
+        panelKeyboard.add(buttonG);
+        panelKeyboard.add(buttonH);
+        panelKeyboard.add(buttonJ);
+        panelKeyboard.add(buttonK);
+        panelKeyboard.add(buttonL);
+        panelKeyboard.add(buttonZ);
+        panelKeyboard.add(buttonX);
+        panelKeyboard.add(buttonC);
+        panelKeyboard.add(buttonV);
+        panelKeyboard.add(buttonB);
+        panelKeyboard.add(buttonN);
+        panelKeyboard.add(buttonM);
+        panelKeyboard.add(buttonENTER);
+        panelKeyboard.add(buttonDELETE);
 
         frame.add(panelTitle, BorderLayout.NORTH);
-        frame.add(panel2, BorderLayout.WEST);
-        frame.add(panel3, BorderLayout.EAST);
-        frame.add(panel4, BorderLayout.SOUTH);
-        frame.add(panel5, BorderLayout.CENTER);
-
-
+        frame.add(panelWest, BorderLayout.WEST);
+        frame.add(panelEast, BorderLayout.EAST);
+        frame.add(panelKeyboard, BorderLayout.SOUTH);
+        frame.add(panelGrid, BorderLayout.CENTER);
     }
 
     /*  */

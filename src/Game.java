@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/* declare and extend the class to include JFrame */
+/* declare and extend the class to include JFrame and Key Listener */
 public class Game extends JFrame implements KeyListener{
 
     /* declare default constructor for this class */

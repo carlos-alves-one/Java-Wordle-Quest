@@ -5,8 +5,8 @@
  * Created..: 16/04/2022
  */
 
+/* declare all libraries to be used with this class */
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -24,9 +24,6 @@ public class PlayGame extends JFrame implements KeyListener {
         String namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
         System.out.println("The player name is: " + namePlayer);
 
-        /* create border for frame */
-        Border border = BorderFactory.createLineBorder(Color.GREEN,3);
-
         /* create label and set the text with position */
         JLabel labelTitle = new JLabel();
         labelTitle.setText("WORDLE");
@@ -36,11 +33,52 @@ public class PlayGame extends JFrame implements KeyListener {
         /* set color, font type and size of the text */
         labelTitle.setForeground(Color.GREEN);
         labelTitle.setFont(new Font("MV Bold", Font.BOLD,36));
-        labelTitle.setIconTextGap(20); // set gap of text to image ???
 
         /* set and display background color plus border of the label */
         labelTitle.setBackground(Color.black);
         labelTitle.setOpaque(true);
+
+        /* create and set color of panels for help subtitles */
+        JPanel panelGreen = new JPanel();
+        JPanel panelYellow = new JPanel();
+        JPanel panelGray = new JPanel();
+        panelGreen.setBackground(Color.green);
+        panelGreen.setPreferredSize(new Dimension(25,20));
+        panelYellow.setBackground(Color.yellow);
+        panelYellow.setPreferredSize(new Dimension(25,20));
+        panelGray.setBackground(Color.gray);
+        panelGray.setPreferredSize(new Dimension(25,20));
+
+        /* create label and set the text with position */
+        JLabel labelTitleGreen = new JLabel();
+        labelTitleGreen.setText("Correct letter");
+        labelTitleGreen.setHorizontalTextPosition(JLabel.CENTER);
+        labelTitleGreen.setVerticalTextPosition(JLabel.TOP);
+        JLabel labelTitleYellow = new JLabel();
+        labelTitleYellow.setText("Correct but wrong spot");
+        labelTitleYellow.setHorizontalTextPosition(JLabel.CENTER);
+        labelTitleYellow.setVerticalTextPosition(JLabel.TOP);
+        JLabel labelTitleGray = new JLabel();
+        labelTitleGray.setText("Letter not in the word");
+        labelTitleGray.setHorizontalTextPosition(JLabel.CENTER);
+        labelTitleGray.setVerticalTextPosition(JLabel.TOP);
+
+
+        /* set color, font type and size of the text */
+        labelTitleGreen.setForeground(Color.GREEN);
+        labelTitleGreen.setFont(new Font("MV Bold", Font.BOLD,12));
+        labelTitleYellow.setForeground(Color.YELLOW);
+        labelTitleYellow.setFont(new Font("MV Bold", Font.BOLD,12));
+        labelTitleGray.setForeground(Color.gray);
+        labelTitleGray.setFont(new Font("MV Bold", Font.BOLD,12));
+
+        /* set and display background color plus border of the label */
+        labelTitleGreen.setBackground(Color.black);
+        labelTitleGreen.setOpaque(true);
+        labelTitleYellow.setBackground(Color.black);
+        labelTitleYellow.setOpaque(true);
+        labelTitleGray.setBackground(Color.black);
+        labelTitleGray.setOpaque(true);
 
         /* create panels */
         JPanel panelTitle = new JPanel();
@@ -65,7 +103,7 @@ public class PlayGame extends JFrame implements KeyListener {
 
         /* create and setup frame */
         frame = new JFrame();
-        frame.setTitle("## WORDLE - PLAY GAME ##");
+        frame.setTitle("Player: " + namePlayer);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
         frame.setSize(469,500);
@@ -142,6 +180,44 @@ public class PlayGame extends JFrame implements KeyListener {
         panelKeyboard.add(buttonENTER);
         panelKeyboard.add(buttonDELETE);
 
+        /* create label and set the text with position */
+        JLabel labelTitleB1 = new JLabel();
+        labelTitleB1.setText("Guess the WORDLE in six tries.");
+        labelTitleB1.setHorizontalTextPosition(JLabel.CENTER);
+        labelTitleB1.setVerticalTextPosition(JLabel.TOP);
+
+        /* set color, font type and size of the text */
+        labelTitleB1.setForeground(Color.GREEN);
+        labelTitleB1.setFont(new Font("MV Bold", Font.BOLD,12));
+
+        /* set and display background color plus border of the label */
+        labelTitleB1.setBackground(Color.black);
+        labelTitleB1.setOpaque(true);
+        panelKeyboard.add(labelTitleB1);
+
+        /* create label and set the text with position */
+        JLabel labelTitleB2 = new JLabel();
+        labelTitleB2.setText("Each guess must be a valid five-letter word. Hit the enter button to submit.");
+        labelTitleB2.setHorizontalTextPosition(JLabel.CENTER);
+        labelTitleB2.setVerticalTextPosition(JLabel.TOP);
+
+        /* set color, font type and size of the text */
+        labelTitleB2.setForeground(Color.gray);
+        labelTitleB2.setFont(new Font("MV Bold", Font.BOLD,12));
+
+        /* set and display background color plus border of the label */
+        labelTitleB2.setBackground(Color.black);
+        labelTitleB2.setOpaque(true);
+        panelKeyboard.add(labelTitleB2);
+
+        /* add help subtitles */
+        panelKeyboard.add(panelGreen);
+        panelKeyboard.add(labelTitleGreen);
+        panelKeyboard.add(panelYellow);
+        panelKeyboard.add(labelTitleYellow);
+        panelKeyboard.add(panelGray);
+        panelKeyboard.add(labelTitleGray);
+
         frame.add(panelTitle, BorderLayout.NORTH);
         frame.add(panelWest, BorderLayout.WEST);
         frame.add(panelEast, BorderLayout.EAST);
@@ -149,7 +225,7 @@ public class PlayGame extends JFrame implements KeyListener {
         frame.add(panelGrid, BorderLayout.CENTER);
     }
 
-    /*  */
+    /* TODO:... */
     public void paint(Graphics g){
         int x = 500,y = 150, width = 50, height = 50;
         for(int i= 0; i < 6; i++) { // for rows
@@ -158,7 +234,6 @@ public class PlayGame extends JFrame implements KeyListener {
             }
         }
     }
-
 
     @Override
     /* method invoked when a key is typed. Uses keyChar, char output */

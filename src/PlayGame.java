@@ -235,6 +235,7 @@ public class PlayGame extends JFrame implements ActionListener {
 
         if(j < 5 && i < 6 && j >= 0 && i >= 0)
             letterBoxes[i][j].setText(letter);
+            letterBoxes[i][j].setBackground(Color.yellow);
     }
 
     @Override

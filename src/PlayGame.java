@@ -9,6 +9,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Objects;
 
 /* declare and extend the class to include JFrame and Key Listener */
 public class PlayGame extends JFrame implements ActionListener {
@@ -122,15 +123,12 @@ public class PlayGame extends JFrame implements ActionListener {
         addLabels();
         panelGrid.add(grid);
 
+        /* create an array to store the letters for the keyboard */
         String[] letters = {" Q "," W "," E "," R "," T "," Y "," U "," I "," O "," P ",
                             " A "," S "," D "," F "," G "," H "," J "," K "," L ",
                             " Z "," X "," C "," V "," B "," N "," M "," DELETE "," ENTER "};
 
-//        String[] buttons = {"buttonQ","buttonW","buttonE","buttonR","buttonT","buttonY","buttonU","buttonI",
-//                            "buttonO","buttonP","buttonA","buttonS","buttonD","buttonF","buttonG","buttonH",
-//                            "buttonJ","buttonK","buttonL", "buttonZ","buttonX","buttonC","buttonV","buttonB",
-//                            "buttonN","buttonM","buttonDELETE","buttonENTER"};
-
+        /* create an array to store all the buttons to be used with the keyboard */
         JButton[] keyboard;
         keyboard = new JButton[28];
 
@@ -146,66 +144,6 @@ public class PlayGame extends JFrame implements ActionListener {
             keyboard[i].addActionListener(this);
             panelKeyboard.add(keyboard[i]);
         }
-
-        /*
-        JButton buttonQ = new JButton("Q");
-        JButton buttonW = new JButton("W");
-        JButton buttonE = new JButton("E");
-        JButton buttonR = new JButton("R");
-        JButton buttonT = new JButton("T");
-        JButton buttonY = new JButton("Y");
-        JButton buttonU = new JButton("U");
-        JButton buttonI = new JButton("I");
-        JButton buttonO = new JButton("O");
-        JButton buttonP = new JButton("P");
-        JButton buttonA = new JButton("A");
-        JButton buttonS = new JButton("S");
-        JButton buttonD = new JButton("D");
-        JButton buttonF = new JButton("F");
-        JButton buttonG = new JButton("G");
-        JButton buttonH = new JButton("H");
-        JButton buttonJ = new JButton("J");
-        JButton buttonK = new JButton("K");
-        JButton buttonL = new JButton("L");
-        JButton buttonZ = new JButton("Z");
-        JButton buttonX = new JButton("X");
-        JButton buttonC = new JButton("C");
-        JButton buttonV = new JButton("V");
-        JButton buttonB = new JButton("B");
-        JButton buttonN = new JButton("N");
-        JButton buttonM = new JButton("M");
-        JButton buttonDELETE = new JButton("DELETE");
-        JButton buttonENTER = new JButton("ENTER"); */
-
-        /* add buttons to panel
-        panelKeyboard.add(buttonQ);
-        panelKeyboard.add(buttonW);
-        panelKeyboard.add(buttonE);
-        panelKeyboard.add(buttonR);
-        panelKeyboard.add(buttonT);
-        panelKeyboard.add(buttonY);
-        panelKeyboard.add(buttonU);
-        panelKeyboard.add(buttonI);
-        panelKeyboard.add(buttonO);
-        panelKeyboard.add(buttonP);
-        panelKeyboard.add(buttonA);
-        panelKeyboard.add(buttonS);
-        panelKeyboard.add(buttonD);
-        panelKeyboard.add(buttonF);
-        panelKeyboard.add(buttonG);
-        panelKeyboard.add(buttonH);
-        panelKeyboard.add(buttonJ);
-        panelKeyboard.add(buttonK);
-        panelKeyboard.add(buttonL);
-        panelKeyboard.add(buttonZ);
-        panelKeyboard.add(buttonX);
-        panelKeyboard.add(buttonC);
-        panelKeyboard.add(buttonV);
-        panelKeyboard.add(buttonB);
-        panelKeyboard.add(buttonN);
-        panelKeyboard.add(buttonM);
-        panelKeyboard.add(buttonDELETE);
-        panelKeyboard.add(buttonENTER); */
 
         /* create label and set the text with position */
         JLabel labelTitleB1 = new JLabel();
@@ -301,8 +239,13 @@ public class PlayGame extends JFrame implements ActionListener {
     }
 
     @Override
+    /* method invoked when one of the buttons are pressed in the keyboard */
     public void actionPerformed(ActionEvent e) {
 
         System.out.println(">> Key pressed: " + e.getActionCommand());
+
+        if(Objects.equals(e.getActionCommand(), " ENTER ")) {
+            System.out.println("Hello ENTER =)");
+        }
     }
 }

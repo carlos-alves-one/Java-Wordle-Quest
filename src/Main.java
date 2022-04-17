@@ -87,7 +87,7 @@ public class Main extends JPanel {
         return target;
     }
 
-    /*  */
+    /* method to style the grid */
     static void styleGrid() {
         Dimension size = new Dimension(250, 200);
         grid.setMaximumSize(size);
@@ -95,12 +95,14 @@ public class Main extends JPanel {
         grid.setBackground(Color.BLACK);
     }
 
+    /* method to update the grid */
     public static void update(int i ,int j, String letter) {
-        System.out.println("in update");
+        System.out.println(">> Update the grid");
         if(j < 5 && i < 6 && j >= 0 && i >= 0)
             letterBoxes[i][j].setText(letter);
     }
 
+    /* method to add labels to the grid */
     public static void addLabels() {
         for(int i = 0; i < 6; i++)
             for(int j = 0; j < 5; j++) {

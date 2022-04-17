@@ -7,7 +7,6 @@
 
 /* declare all libraries to be used on this class */
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -16,10 +15,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main extends JPanel {
-
-    /* declare an array to store letters using labels 5 letters by 6 rows */
-    static JLabel[][] letterBoxes = new JLabel[6][5];
-    static JPanel grid = new JPanel(new GridLayout(6,5,5,5));
 
     /* pretty colours for the output */
     public static final String TEXT_RED   = "\u001B[31m";
@@ -81,38 +76,6 @@ public class Main extends JPanel {
         //don't delete this line.
         System.out.println("** The word we are looking for -->> " + target);
         return target;
-    }
-
-    /* declare method draw individual rectangles for each labels */
-    public void paint (Graphics g){
-        g.drawRect(150, 235, 150, 150);
-    }
-
-    /* method to style the grid */
-    static void styleGrid() {
-        Dimension size = new Dimension(250, 200);
-        grid.setMaximumSize(size);
-        grid.setPreferredSize(size);
-        grid.setBackground(Color.BLACK);
-    }
-
-    /* method to update the grid */
-    public static void update(int i ,int j, String letter) {
-        System.out.println(">> Update the grid");
-        if(j < 5 && i < 6 && j >= 0 && i >= 0)
-            letterBoxes[i][j].setText(letter);
-    }
-
-    /* method to add labels to the grid */
-    public static void addLabels() {
-        for(int i = 0; i < 6; i++)
-            for(int j = 0; j < 5; j++) {
-                JLabel label = new JLabel();
-                label.setOpaque(true);
-                label.setBackground(Color.gray);
-                label.setHorizontalAlignment(SwingConstants.CENTER);
-                grid.add(letterBoxes[i][j] = label);
-            }
     }
 }
 

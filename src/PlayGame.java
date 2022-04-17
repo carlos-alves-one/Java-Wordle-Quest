@@ -214,15 +214,6 @@ public class PlayGame extends JFrame implements ActionListener {
         grid.setBackground(Color.BLACK);
     }
 
-    /* method to update the grid */
-    public static void update(int i ,int j, String letter) {
-
-        System.out.println(">> Update the grid");
-
-        if(j < 5 && i < 6 && j >= 0 && i >= 0)
-            letterBoxes[i][j].setText(letter);
-    }
-
     /* method to add labels to the grid */
     public static void addLabels() {
 
@@ -233,18 +224,30 @@ public class PlayGame extends JFrame implements ActionListener {
                 label.setOpaque(true);
                 label.setBackground(Color.gray);
                 label.setHorizontalAlignment(SwingConstants.CENTER);
+                label.setFont(new Font("MV Bold", Font.BOLD,20));
                 grid.add(letterBoxes[i][j] = label);
             }
         }
+    }
+
+    /* method to update the grid */
+    public static void update(int i ,int j, String letter) {
+
+        if(j < 5 && i < 6 && j >= 0 && i >= 0)
+            letterBoxes[i][j].setText(letter);
     }
 
     @Override
     /* method invoked when one of the buttons are pressed in the keyboard */
     public void actionPerformed(ActionEvent e) {
 
-        System.out.println(">> Key pressed: " + e.getActionCommand());
+        String keyPressed = e.getActionCommand();
 
-        if(Objects.equals(e.getActionCommand(), " ENTER ")) {
+        System.out.println(">> Key pressed: " + keyPressed);
+
+        update(0,0, keyPressed);
+
+        if(Objects.equals(keyPressed, " ENTER ")) {
             System.out.println("Hello ENTER =)");
         }
     }

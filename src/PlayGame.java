@@ -118,12 +118,12 @@ public class PlayGame extends JFrame implements KeyListener {
         /* add panels to the frame */
         panelTitle.add(labelTitle);
 
-        /* GRID */
+        /* create GRID */
         styleGrid();
         addLabels();
         panelGrid.add(grid);
 
-        /* create keyboard */
+        /* create buttons for keyboard */
         JButton buttonQ = new JButton("Q");
         JButton buttonW = new JButton("W");
         JButton buttonE = new JButton("E");
@@ -153,6 +153,7 @@ public class PlayGame extends JFrame implements KeyListener {
         JButton buttonDELETE = new JButton("DELETE");
         JButton buttonENTER = new JButton("ENTER");
 
+        /* add buttons to panel */
         panelKeyboard.add(buttonQ);
         panelKeyboard.add(buttonW);
         panelKeyboard.add(buttonE);
@@ -220,6 +221,7 @@ public class PlayGame extends JFrame implements KeyListener {
         panelKeyboard.add(panelGray);
         panelKeyboard.add(labelTitleGray);
 
+        /* add all panels to frame */
         frame.add(panelTitle, BorderLayout.NORTH);
         frame.add(panelWest, BorderLayout.WEST);
         frame.add(panelEast, BorderLayout.EAST);
@@ -229,9 +231,14 @@ public class PlayGame extends JFrame implements KeyListener {
 
     /* method to draw all labels of the grid */
     public void paint(Graphics g){
+
         int x = 500,y = 150, width = 50, height = 50;
-        for(int i= 0; i < 6; i++) { // for rows
-            for (int j = 0; j < 5; j++) { //for columns
+
+        /* loop to draw rectangles for rows */
+        for(int i= 0; i < 6; i++) {
+
+            /* loop to draw rectangles for columns */
+            for (int j = 0; j < 5; j++) {
                 g.drawRect(x + (width * j), y+(height*i), width, height);
             }
         }
@@ -239,9 +246,7 @@ public class PlayGame extends JFrame implements KeyListener {
 
     @Override
     /* method invoked when a key is typed. Uses keyChar, char output */
-    public void keyTyped(KeyEvent e) {
-
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     /* method invoked when a physical key is pressed down. Uses KeyCode, int output */
@@ -256,10 +261,8 @@ public class PlayGame extends JFrame implements KeyListener {
 
     @Override
     /* method called whenever a button is released */
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e) {}
 
-    }
-    
     /* method to style the grid */
     static void styleGrid() {
         Dimension size = new Dimension(250, 200);
@@ -270,20 +273,25 @@ public class PlayGame extends JFrame implements KeyListener {
 
     /* method to update the grid */
     public static void update(int i ,int j, String letter) {
+
         System.out.println(">> Update the grid");
+
         if(j < 5 && i < 6 && j >= 0 && i >= 0)
             letterBoxes[i][j].setText(letter);
     }
 
     /* method to add labels to the grid */
     public static void addLabels() {
-        for(int i = 0; i < 6; i++)
-            for(int j = 0; j < 5; j++) {
+
+        for(int i = 0; i < 6; i++) {
+
+            for (int j = 0; j < 5; j++) {
                 JLabel label = new JLabel();
                 label.setOpaque(true);
                 label.setBackground(Color.gray);
                 label.setHorizontalAlignment(SwingConstants.CENTER);
                 grid.add(letterBoxes[i][j] = label);
             }
+        }
     }
 }

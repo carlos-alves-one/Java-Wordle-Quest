@@ -22,7 +22,6 @@ public class PlayGame extends JFrame implements KeyListener {
 
         /* pop up user to enter the name */
         String namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
-        System.out.println("The player name is: " + namePlayer);
 
         /* create label and set the text with position */
         JLabel labelTitle = new JLabel();
@@ -148,8 +147,8 @@ public class PlayGame extends JFrame implements KeyListener {
         JButton buttonB = new JButton("B");
         JButton buttonN = new JButton("N");
         JButton buttonM = new JButton("M");
-        JButton buttonENTER = new JButton("ENTER");
         JButton buttonDELETE = new JButton("DELETE");
+        JButton buttonENTER = new JButton("ENTER");
 
         panelKeyboard.add(buttonQ);
         panelKeyboard.add(buttonW);
@@ -177,8 +176,8 @@ public class PlayGame extends JFrame implements KeyListener {
         panelKeyboard.add(buttonB);
         panelKeyboard.add(buttonN);
         panelKeyboard.add(buttonM);
-        panelKeyboard.add(buttonENTER);
         panelKeyboard.add(buttonDELETE);
+        panelKeyboard.add(buttonENTER);
 
         /* create label and set the text with position */
         JLabel labelTitleB1 = new JLabel();

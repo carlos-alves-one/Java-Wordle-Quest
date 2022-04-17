@@ -49,7 +49,7 @@ public class Game extends JFrame implements KeyListener{
         frame.setTitle("## WORDLE GAME - WELCOME ##");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
-        frame.setSize(469,500);
+        frame.setSize(469,510);
         frame.addKeyListener(this);
         frame.setVisible(true);
 

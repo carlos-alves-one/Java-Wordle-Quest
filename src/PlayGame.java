@@ -123,7 +123,32 @@ public class PlayGame extends JFrame implements KeyListener {
         addLabels();
         panelGrid.add(grid);
 
+        String[] letters = {" Q "," W "," E "," R "," T "," Y "," U "," I "," O "," P ",
+                            " A "," S "," D "," F "," G "," H "," J "," K "," L ",
+                            " Z "," X "," C "," V "," B "," N "," M "," DELETE "," ENTER "};
+
+        String[] buttons = {"buttonQ","buttonW","buttonE","buttonR","buttonT","buttonY","buttonU","buttonI",
+                            "buttonO","buttonP","buttonA","buttonS","buttonD","buttonF","buttonG","buttonH",
+                            "buttonJ","buttonK","buttonL", "buttonZ","buttonX","buttonC","buttonV","buttonB",
+                            "buttonN","buttonM","buttonDELETE","buttonENTER"};
+
+        JButton[] keyboard;
+        keyboard = new JButton[28];
+
         /* create buttons for keyboard */
+        for (int i = 0; i < letters.length; i++) {
+            keyboard[i] = new JButton();
+            keyboard[i].setText(letters[i]);
+            panelKeyboard.add(keyboard[i]);
+            keyboard[i].setBorder(BorderFactory.createLineBorder(new Color(100, 100, 10), 10));
+            keyboard[i].setBackground(new Color(129, 131, 132));
+            keyboard[i].setOpaque(true);
+            keyboard[i].setForeground(Color.darkGray);
+            keyboard[i].setFont(new Font("Clear Sans", Font.BOLD, 13));
+            //keyboard[i].addActionListener(this);
+        }
+
+        /*
         JButton buttonQ = new JButton("Q");
         JButton buttonW = new JButton("W");
         JButton buttonE = new JButton("E");
@@ -151,9 +176,9 @@ public class PlayGame extends JFrame implements KeyListener {
         JButton buttonN = new JButton("N");
         JButton buttonM = new JButton("M");
         JButton buttonDELETE = new JButton("DELETE");
-        JButton buttonENTER = new JButton("ENTER");
+        JButton buttonENTER = new JButton("ENTER"); */
 
-        /* add buttons to panel */
+        /* add buttons to panel
         panelKeyboard.add(buttonQ);
         panelKeyboard.add(buttonW);
         panelKeyboard.add(buttonE);
@@ -181,7 +206,7 @@ public class PlayGame extends JFrame implements KeyListener {
         panelKeyboard.add(buttonN);
         panelKeyboard.add(buttonM);
         panelKeyboard.add(buttonDELETE);
-        panelKeyboard.add(buttonENTER);
+        panelKeyboard.add(buttonENTER); */
 
         /* create label and set the text with position */
         JLabel labelTitleB1 = new JLabel();

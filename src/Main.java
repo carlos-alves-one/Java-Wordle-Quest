@@ -17,12 +17,9 @@ import java.util.Scanner;
 
 public class Main extends JPanel {
 
+    /* declare an array to store letters using labels 5 letters by 6 rows */
     static JLabel[][] letterBoxes = new JLabel[6][5];
     static JPanel grid = new JPanel(new GridLayout(6,5,5,5));
-
-    public void paint (Graphics g){
-        g.drawRect(150, 235, 150, 150);
-    }
 
     /* pretty colours for the output */
     public static final String TEXT_RED   = "\u001B[31m";
@@ -30,15 +27,16 @@ public class Main extends JPanel {
     public static final String TEXT_WHITE = "\u001B[0m";
     public static final String TEXT_GREEN = "\u001B[32m";
 
-    //a list of all possible 5-letter words in English
+    // a list of all possible 5-letter words in English
     public static HashSet<String> dictionary = new HashSet<>();
 
-    //a smaller list of words for selecting the target word from (i.e. the word the player needs to guess)
+    // a smaller list of words for selecting the target word from (i.e. the word the player needs to guess)
     public static ArrayList<String> targetWords = new ArrayList<>();
 
+    /* main method of the app */
     public static void main(String[] args) {
 
-        //load in the two word lists
+        // load in the two word lists
         try{
             Scanner in_dict  = new Scanner(new File("gameDictionary.txt"));
             while(in_dict.hasNext()){
@@ -54,8 +52,6 @@ public class Main extends JPanel {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-        /* starting code from here... */
 
         /* print the word wordle in the console */
         System.out.print(TEXT_GREEN);
@@ -85,6 +81,11 @@ public class Main extends JPanel {
         //don't delete this line.
         System.out.println("** The word we are looking for -->> " + target);
         return target;
+    }
+
+    /* declare method draw individual rectangles for each labels */
+    public void paint (Graphics g){
+        g.drawRect(150, 235, 150, 150);
     }
 
     /* method to style the grid */

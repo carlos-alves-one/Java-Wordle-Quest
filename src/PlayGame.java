@@ -62,7 +62,6 @@ public class PlayGame extends JFrame implements KeyListener {
         labelTitleGray.setHorizontalTextPosition(JLabel.CENTER);
         labelTitleGray.setVerticalTextPosition(JLabel.TOP);
 
-
         /* set color, font type and size of the text */
         labelTitleGreen.setForeground(Color.GREEN);
         labelTitleGreen.setFont(new Font("MV Bold", Font.BOLD,12));
@@ -224,7 +223,7 @@ public class PlayGame extends JFrame implements KeyListener {
         frame.add(panelGrid, BorderLayout.CENTER);
     }
 
-    /* TODO:... */
+    /* method to draw all labels of the grid */
     public void paint(Graphics g){
         int x = 500,y = 150, width = 50, height = 50;
         for(int i= 0; i < 6; i++) { // for rows

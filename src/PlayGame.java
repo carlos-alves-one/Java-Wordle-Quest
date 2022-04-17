@@ -8,11 +8,10 @@
 /* declare all libraries to be used with this class */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 /* declare and extend the class to include JFrame and Key Listener */
-public class PlayGame extends JFrame implements KeyListener {
+public class PlayGame extends JFrame implements ActionListener {
 
     /* declare frame as global */
     JFrame frame;
@@ -109,7 +108,7 @@ public class PlayGame extends JFrame implements KeyListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
         frame.setSize(469,500);
-        frame.addKeyListener(this);
+        //frame.addKeyListener(this);
         frame.setVisible(true);
 
         /* set up position of the frame at the center of the screen */
@@ -127,10 +126,10 @@ public class PlayGame extends JFrame implements KeyListener {
                             " A "," S "," D "," F "," G "," H "," J "," K "," L ",
                             " Z "," X "," C "," V "," B "," N "," M "," DELETE "," ENTER "};
 
-        String[] buttons = {"buttonQ","buttonW","buttonE","buttonR","buttonT","buttonY","buttonU","buttonI",
-                            "buttonO","buttonP","buttonA","buttonS","buttonD","buttonF","buttonG","buttonH",
-                            "buttonJ","buttonK","buttonL", "buttonZ","buttonX","buttonC","buttonV","buttonB",
-                            "buttonN","buttonM","buttonDELETE","buttonENTER"};
+//        String[] buttons = {"buttonQ","buttonW","buttonE","buttonR","buttonT","buttonY","buttonU","buttonI",
+//                            "buttonO","buttonP","buttonA","buttonS","buttonD","buttonF","buttonG","buttonH",
+//                            "buttonJ","buttonK","buttonL", "buttonZ","buttonX","buttonC","buttonV","buttonB",
+//                            "buttonN","buttonM","buttonDELETE","buttonENTER"};
 
         JButton[] keyboard;
         keyboard = new JButton[28];
@@ -139,13 +138,13 @@ public class PlayGame extends JFrame implements KeyListener {
         for (int i = 0; i < letters.length; i++) {
             keyboard[i] = new JButton();
             keyboard[i].setText(letters[i]);
-            panelKeyboard.add(keyboard[i]);
             keyboard[i].setBorder(BorderFactory.createLineBorder(new Color(100, 100, 10), 10));
             keyboard[i].setBackground(new Color(129, 131, 132));
             keyboard[i].setOpaque(true);
             keyboard[i].setForeground(Color.darkGray);
             keyboard[i].setFont(new Font("Clear Sans", Font.BOLD, 13));
-            //keyboard[i].addActionListener(this);
+            keyboard[i].addActionListener(this);
+            panelKeyboard.add(keyboard[i]);
         }
 
         /*
@@ -269,25 +268,6 @@ public class PlayGame extends JFrame implements KeyListener {
         }
     }
 
-    @Override
-    /* method invoked when a key is typed. Uses keyChar, char output */
-    public void keyTyped(KeyEvent e) {}
-
-    @Override
-    /* method invoked when a physical key is pressed down. Uses KeyCode, int output */
-    public void keyPressed(KeyEvent e) {
-
-        /* enter key pressed ** it will play the game */
-        if (e.getKeyCode() == 10) {
-
-            // TODO...
-        }
-    }
-
-    @Override
-    /* method called whenever a button is released */
-    public void keyReleased(KeyEvent e) {}
-
     /* method to style the grid */
     static void styleGrid() {
         Dimension size = new Dimension(250, 200);
@@ -318,5 +298,11 @@ public class PlayGame extends JFrame implements KeyListener {
                 grid.add(letterBoxes[i][j] = label);
             }
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        System.out.println(">> Key pressed: " + e.getActionCommand());
     }
 }

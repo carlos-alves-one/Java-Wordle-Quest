@@ -21,6 +21,11 @@ public class PlayGame extends JFrame implements ActionListener {
     static JLabel[][] letterBoxes = new JLabel[6][5];
     static JPanel grid = new JPanel(new GridLayout(6,5,5,5));
 
+    /* declare counters for score and control letters and words */
+    int playerScore = 0;
+    int totalLetters = 0;
+    int totalWords = 0;
+
     /* declare default constructor for this class */
     PlayGame() {
 
@@ -105,7 +110,7 @@ public class PlayGame extends JFrame implements ActionListener {
 
         /* create and setup frame */
         frame = new JFrame();
-        frame.setTitle("Player: " + namePlayer);
+        frame.setTitle("Player: " + namePlayer + " -->> Score: " + playerScore);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
         frame.setSize(469,500);
@@ -246,7 +251,8 @@ public class PlayGame extends JFrame implements ActionListener {
 
         System.out.println(">> Key pressed: " + keyPressed);
 
-        update(0,0, keyPressed);
+        update(totalWords,totalLetters, keyPressed);
+        totalLetters++;
 
         if(Objects.equals(keyPressed, " ENTER ")) {
             System.out.println("Hello ENTER =)");

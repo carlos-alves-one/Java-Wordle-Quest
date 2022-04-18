@@ -236,11 +236,19 @@ public class PlayGame extends JFrame implements ActionListener {
     }
 
     /* method to update the grid */
-    public static void updateGrid(int i ,int j, String letter) {
+    public static void updateGrid(int i ,int j, String letter, String color) {
 
-        if(j < 5 && i < 6 && j >= 0 && i >= 0)
+        if(j < 5 && i < 6 && j >= 0 && i >= 0) {
+
             letterBoxes[i][j].setText(letter);
-            letterBoxes[i][j].setBackground(Color.yellow);
+
+            if (Objects.equals(color, "gray")) {
+                letterBoxes[i][j].setBackground(Color.gray);
+            }
+            else {
+                letterBoxes[i][j].setBackground(Color.yellow);
+            }
+        }
     }
 
     @Override
@@ -254,19 +262,30 @@ public class PlayGame extends JFrame implements ActionListener {
         /* check we pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
             System.out.println("ENTER key was pressed");
+
+            // TODO: >> VALIDATE WORD...
         }
 
         /* check we pressed DELETE */
         if(Objects.equals(keyPressed, " DELETE ")) {
-            System.out.println("ENTER key was pressed");
+            System.out.println("DELETE key was pressed");
+            /* clear the grid with space */
+            updateGrid(totalWords, totalLetters = totalLetters > 0 ?
+                       totalLetters - 1 : totalLetters, " ", "gray");
+            totalLetters--;
         }
-
-        /* fill the grid with letter */
-        updateGrid(totalWords,totalLetters, keyPressed);
+        else {
+            /* fill the grid with letter */
+            updateGrid(totalWords, totalLetters, keyPressed, "yellow");
+        }
 
         /* check we have a word with 5 letters */
         if (totalLetters < 4) {
             totalLetters++;
+        }
+        else if (totalLetters == 4 && Objects.equals(keyPressed, " DELETE ")) {
+            updateGrid(totalWords, totalLetters = totalLetters > 0 ?
+                    totalLetters - 1 : totalLetters, " ", "gray");
         }
         else {
             /* if we have a word we're going to next row */
@@ -275,7 +294,5 @@ public class PlayGame extends JFrame implements ActionListener {
                 totalWords++;
             }
         }
-
-
     }
 }

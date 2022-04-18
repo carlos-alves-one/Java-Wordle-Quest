@@ -251,20 +251,26 @@ public class PlayGame extends JFrame implements ActionListener {
 
         System.out.println(">> Key pressed: " + keyPressed);
 
+        /* check we pressed ENTER */
+        if(Objects.equals(keyPressed, " ENTER ")) {
+            System.out.println("ENTER key was pressed");
+        }
+
+        /* fill the grid with letter */
         updateGrid(totalWords,totalLetters, keyPressed);
 
+        /* check we have a word with 5 letters */
         if (totalLetters < 4) {
             totalLetters++;
         }
         else {
+            /* if we have a word we're going to next row */
             totalLetters = 0;
             if (totalWords < 5) {
                 totalWords++;
             }
         }
 
-        if(Objects.equals(keyPressed, " ENTER ")) {
-            System.out.println("Hello ENTER =)");
-        }
+
     }
 }

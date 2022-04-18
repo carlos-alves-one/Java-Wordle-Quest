@@ -256,6 +256,11 @@ public class PlayGame extends JFrame implements ActionListener {
             System.out.println("ENTER key was pressed");
         }
 
+        /* check we pressed DELETE */
+        if(Objects.equals(keyPressed, " DELETE ")) {
+            System.out.println("ENTER key was pressed");
+        }
+
         /* fill the grid with letter */
         updateGrid(totalWords,totalLetters, keyPressed);
 

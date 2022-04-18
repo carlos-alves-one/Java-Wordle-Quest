@@ -280,12 +280,8 @@ public class PlayGame extends JFrame implements ActionListener {
         }
 
         /* check we have a word with 5 letters */
-        if (totalLetters < 4) {
+        if (totalLetters < 5) {
             totalLetters++;
-        }
-        else if (totalLetters == 4 && Objects.equals(keyPressed, " DELETE ")) {
-            updateGrid(totalWords, totalLetters = totalLetters > 0 ?
-                    totalLetters - 1 : totalLetters, " ", "gray");
         }
         else {
             /* if we have a word we're going to next row */

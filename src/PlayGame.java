@@ -236,7 +236,7 @@ public class PlayGame extends JFrame implements ActionListener {
     }
 
     /* method to update the grid */
-    public static void update(int i ,int j, String letter) {
+    public static void updateGrid(int i ,int j, String letter) {
 
         if(j < 5 && i < 6 && j >= 0 && i >= 0)
             letterBoxes[i][j].setText(letter);
@@ -251,8 +251,17 @@ public class PlayGame extends JFrame implements ActionListener {
 
         System.out.println(">> Key pressed: " + keyPressed);
 
-        update(totalWords,totalLetters, keyPressed);
-        totalLetters++;
+        updateGrid(totalWords,totalLetters, keyPressed);
+
+        if (totalLetters < 4) {
+            totalLetters++;
+        }
+        else {
+            totalLetters = 0;
+            if (totalWords < 5) {
+                totalWords++;
+            }
+        }
 
         if(Objects.equals(keyPressed, " ENTER ")) {
             System.out.println("Hello ENTER =)");

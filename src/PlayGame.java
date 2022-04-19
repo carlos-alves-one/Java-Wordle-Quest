@@ -290,21 +290,11 @@ public class PlayGame extends JFrame implements ActionListener {
             userWord += keyPressed.replaceAll(" ", "");
             System.out.println(">> Current Word: " + userWord);
 
-            /* check we have a word with 5 letters */
-            if (totalLetters < 5) {
-                totalLetters++;
-            }
-            else {
-                /* if we have a word we're going to next row */
-                totalLetters = 0;
-                if (totalWords < 5) {
-                    totalWords++;
-                }
-            }
+
         }
 
         /* check we pressed ENTER */
-        if(Objects.equals(keyPressed, " ENTER ")) {
+        if(Objects.equals(keyPressed, " ENTER ") || totalLetters == 4) {
 
             System.out.println(">> Current Word: " + userWord);
 
@@ -314,8 +304,14 @@ public class PlayGame extends JFrame implements ActionListener {
                         "Invalid Word - Please fill the word with 5 letters");
             }
 
+            /* check we have a word, but we don't have a match */
+            if (totalLetters == 4 && !userWord.equals(Main.wordle)) {
+                JOptionPane.showMessageDialog(null,
+                        "Wordle not found - Please enter another word");
+            }
+
             /* check we have the last word, and we don't have a match */
-            if (totalWords > 4) {
+            if (totalWords > 4 && !userWord.equals(Main.wordle) && totalLetters > 0) {
                 JOptionPane.showMessageDialog(null,
                         "Unfortunately you did not found the Wordle");
             }
@@ -329,13 +325,24 @@ public class PlayGame extends JFrame implements ActionListener {
             /* store in an array single letters from the word */
             String[] userWordLetters = userWord.split("");
 
+            // TODO...
             /* check the user word letter match with the word target */
 //            for (int i = 0; i < 6; i++) {
 //                if (Main.wordle.contains(userWordLetters[i])) {
 //
 //                }
 //            }
-
+        }
+        /* check we have a word with 5 letters */
+        if (totalLetters < 5) {
+            totalLetters++;
+        }
+        else {
+            /* if we have a word we're going to next row */
+            totalLetters = 0;
+            if (totalWords < 5) {
+                totalWords++;
+            }
             /* reset current word */
             userWord = "";
         }

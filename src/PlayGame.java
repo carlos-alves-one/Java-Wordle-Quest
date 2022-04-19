@@ -26,6 +26,9 @@ public class PlayGame extends JFrame implements ActionListener {
     int totalLetters = 0;
     int totalWords = 0;
 
+    /* declare variable to store the word from the user */
+    String userWord = "";
+
     /* declare default constructor for this class */
     PlayGame() {
 
@@ -258,6 +261,9 @@ public class PlayGame extends JFrame implements ActionListener {
         String keyPressed = e.getActionCommand();
 
         System.out.println(">> Key pressed: " + keyPressed);
+
+        userWord += keyPressed.replaceAll(" ", "");
+        System.out.println(">> Current Word: " + userWord);
 
         /* check we pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {

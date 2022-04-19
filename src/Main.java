@@ -22,6 +22,9 @@ public class Main extends JPanel {
     public static final String TEXT_WHITE = "\u001B[0m";
     public static final String TEXT_GREEN = "\u001B[32m";
 
+    /* declare the word target */
+    public static String wordle;
+
     // a list of all possible 5-letter words in English
     public static HashSet<String> dictionary = new HashSet<>();
 
@@ -62,7 +65,7 @@ public class Main extends JPanel {
         System.out.print(TEXT_BLUE);
 
         /* print the word in the console we are looking for */
-        String wordle = getTarget();
+        wordle = getTarget();
 
         /* run game */
         new Game();

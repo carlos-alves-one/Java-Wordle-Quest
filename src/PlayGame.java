@@ -264,7 +264,7 @@ public class PlayGame extends JFrame implements ActionListener {
 
         /* check we pressed DELETE */
         if(Objects.equals(keyPressed, " DELETE ")) {
-            
+
             /* clear the grid with space and update background color */
             updateGrid(totalWords, totalLetters = totalLetters > 0 ?
                        totalLetters - 1 : totalLetters, " ", "gray");
@@ -300,6 +300,15 @@ public class PlayGame extends JFrame implements ActionListener {
             if (userWord.length() < 4) {
                 JOptionPane.showMessageDialog(null,
                         "Invalid Word - Please fill the word with 5 letters");
+            }
+
+            /* store in an array single letters from the word */
+            char[] userWordLetters = userWord.toCharArray();
+
+            /* check we have word match */
+            if(userWord.equals(Main.wordle)) {
+                JOptionPane.showMessageDialog(null,
+                        "Congratulations you found the Wordle");
             }
         }
 

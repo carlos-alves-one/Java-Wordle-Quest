@@ -9,7 +9,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Locale;
 import java.util.Objects;
 
 /* declare and extend the class to include JFrame and Key Listener */
@@ -265,7 +264,7 @@ public class PlayGame extends JFrame implements ActionListener {
 
         /* check we pressed DELETE */
         if(Objects.equals(keyPressed, " DELETE ")) {
-            System.out.println("DELETE key was pressed");
+            
             /* clear the grid with space and update background color */
             updateGrid(totalWords, totalLetters = totalLetters > 0 ?
                        totalLetters - 1 : totalLetters, " ", "gray");
@@ -275,23 +274,13 @@ public class PlayGame extends JFrame implements ActionListener {
             if (userWord.length() > 0) {
                 userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
             }
+
+            System.out.println(">> Current Word: " + userWord);
         }
         else {
             if (!Objects.equals(keyPressed, " ENTER ")) {
                 /* fill the grid with letter and update background color */
                 updateGrid(totalWords, totalLetters, keyPressed, "yellow");
-            }
-        }
-
-        /* check we have a word with 5 letters */
-        if (totalLetters < 5) {
-            totalLetters++;
-        }
-        else {
-            /* if we have a word we're going to next row */
-            totalLetters = 0;
-            if (totalWords < 5) {
-                totalWords++;
             }
         }
 
@@ -304,12 +293,25 @@ public class PlayGame extends JFrame implements ActionListener {
 
         /* check we pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
-            System.out.println("ENTER key was pressed");
+
+            System.out.println(">> Current Word: " + userWord);
 
             /* validate we have a full word with 5 letters */
             if (userWord.length() < 4) {
                 JOptionPane.showMessageDialog(null,
-                        "Please fill the word with 5 letters");
+                        "Invalid Word - Please fill the word with 5 letters");
+            }
+        }
+
+        /* check we have a word with 5 letters */
+        if (totalLetters < 5) {
+            totalLetters++;
+        }
+        else {
+            /* if we have a word we're going to next row */
+            totalLetters = 0;
+            if (totalWords < 5) {
+                totalWords++;
             }
         }
     }

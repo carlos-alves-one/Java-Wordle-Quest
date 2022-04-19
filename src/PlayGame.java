@@ -9,6 +9,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Locale;
 import java.util.Objects;
 
 /* declare and extend the class to include JFrame and Key Listener */
@@ -258,24 +259,23 @@ public class PlayGame extends JFrame implements ActionListener {
     /* method invoked when one of the buttons are pressed in the keyboard */
     public void actionPerformed(ActionEvent e) {
 
+        /* store key pressed by the user */
         String keyPressed = e.getActionCommand();
-
         System.out.println(">> Key pressed: " + keyPressed);
-
-
 
         /* check we pressed DELETE */
         if(Objects.equals(keyPressed, " DELETE ")) {
             System.out.println("DELETE key was pressed");
-            /* clear the grid with space */
+            /* clear the grid with space and update background color */
             updateGrid(totalWords, totalLetters = totalLetters > 0 ?
                        totalLetters - 1 : totalLetters, " ", "gray");
             totalLetters--;
+
             /* update the word from the user */
             userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
         }
         else {
-            /* fill the grid with letter */
+            /* fill the grid with letter and update background color */
             updateGrid(totalWords, totalLetters, keyPressed, "yellow");
         }
 
@@ -300,6 +300,7 @@ public class PlayGame extends JFrame implements ActionListener {
 
         /* only add letters to the word */
         if (!Objects.equals(keyPressed, " ENTER ") && !Objects.equals(keyPressed, " DELETE ")) {
+            keyPressed = keyPressed.toLowerCase();
             userWord += keyPressed.replaceAll(" ", "");
             System.out.println(">> Current Word: " + userWord);
         }

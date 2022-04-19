@@ -262,15 +262,7 @@ public class PlayGame extends JFrame implements ActionListener {
 
         System.out.println(">> Key pressed: " + keyPressed);
 
-        userWord += keyPressed.replaceAll(" ", "");
-        System.out.println(">> Current Word: " + userWord);
 
-        /* check we pressed ENTER */
-        if(Objects.equals(keyPressed, " ENTER ")) {
-            System.out.println("ENTER key was pressed");
-
-            // TODO: >> VALIDATE WORD...
-        }
 
         /* check we pressed DELETE */
         if(Objects.equals(keyPressed, " DELETE ")) {
@@ -279,6 +271,8 @@ public class PlayGame extends JFrame implements ActionListener {
             updateGrid(totalWords, totalLetters = totalLetters > 0 ?
                        totalLetters - 1 : totalLetters, " ", "gray");
             totalLetters--;
+            /* update the word from the user */
+            userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
         }
         else {
             /* fill the grid with letter */
@@ -296,5 +290,19 @@ public class PlayGame extends JFrame implements ActionListener {
                 totalWords++;
             }
         }
+
+        /* check we pressed ENTER */
+        if(Objects.equals(keyPressed, " ENTER ")) {
+            System.out.println("ENTER key was pressed");
+
+            // TODO: >> VALIDATE WORD...
+        }
+
+        /* only add letters to the word */
+        if (!Objects.equals(keyPressed, " ENTER ") && !Objects.equals(keyPressed, " DELETE ")) {
+            userWord += keyPressed.replaceAll(" ", "");
+            System.out.println(">> Current Word: " + userWord);
+        }
+
     }
 }

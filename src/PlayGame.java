@@ -272,11 +272,15 @@ public class PlayGame extends JFrame implements ActionListener {
             totalLetters--;
 
             /* update the word from the user */
-            userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
+            if (userWord.length() > 0) {
+                userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
+            }
         }
         else {
-            /* fill the grid with letter and update background color */
-            updateGrid(totalWords, totalLetters, keyPressed, "yellow");
+            if (!Objects.equals(keyPressed, " ENTER ")) {
+                /* fill the grid with letter and update background color */
+                updateGrid(totalWords, totalLetters, keyPressed, "yellow");
+            }
         }
 
         /* check we have a word with 5 letters */
@@ -291,19 +295,22 @@ public class PlayGame extends JFrame implements ActionListener {
             }
         }
 
-        /* check we pressed ENTER */
-        if(Objects.equals(keyPressed, " ENTER ")) {
-            System.out.println("ENTER key was pressed");
-
-            // TODO: >> VALIDATE WORD...
-        }
-
-        /* only add letters to the word */
+        /* only add letters to the word  when is not ENTER or DELETE */
         if (!Objects.equals(keyPressed, " ENTER ") && !Objects.equals(keyPressed, " DELETE ")) {
             keyPressed = keyPressed.toLowerCase();
             userWord += keyPressed.replaceAll(" ", "");
             System.out.println(">> Current Word: " + userWord);
         }
 
+        /* check we pressed ENTER */
+        if(Objects.equals(keyPressed, " ENTER ")) {
+            System.out.println("ENTER key was pressed");
+
+            /* validate we have a full word with 5 letters */
+            if (userWord.length() < 4) {
+                JOptionPane.showMessageDialog(null,
+                        "Please fill the word with 5 letters");
+            }
+        }
     }
 }

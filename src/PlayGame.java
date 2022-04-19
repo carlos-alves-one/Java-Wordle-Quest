@@ -289,6 +289,18 @@ public class PlayGame extends JFrame implements ActionListener {
             keyPressed = keyPressed.toLowerCase();
             userWord += keyPressed.replaceAll(" ", "");
             System.out.println(">> Current Word: " + userWord);
+
+            /* check we have a word with 5 letters */
+            if (totalLetters < 5) {
+                totalLetters++;
+            }
+            else {
+                /* if we have a word we're going to next row */
+                totalLetters = 0;
+                if (totalWords < 5) {
+                    totalWords++;
+                }
+            }
         }
 
         /* check we pressed ENTER */
@@ -297,31 +309,35 @@ public class PlayGame extends JFrame implements ActionListener {
             System.out.println(">> Current Word: " + userWord);
 
             /* validate we have a full word with 5 letters */
-            if (userWord.length() < 4) {
+            if (userWord.length() < 4 && totalWords < 5) {
                 JOptionPane.showMessageDialog(null,
                         "Invalid Word - Please fill the word with 5 letters");
             }
 
-            /* store in an array single letters from the word */
-            char[] userWordLetters = userWord.toCharArray();
+            /* check we have the last word, and we don't have a match */
+            if (totalWords > 4) {
+                JOptionPane.showMessageDialog(null,
+                        "Unfortunately you did not found the Wordle");
+            }
 
             /* check we have word match */
             if(userWord.equals(Main.wordle)) {
                 JOptionPane.showMessageDialog(null,
                         "Congratulations you found the Wordle");
             }
-        }
 
-        /* check we have a word with 5 letters */
-        if (totalLetters < 5) {
-            totalLetters++;
-        }
-        else {
-            /* if we have a word we're going to next row */
-            totalLetters = 0;
-            if (totalWords < 5) {
-                totalWords++;
-            }
+            /* store in an array single letters from the word */
+            String[] userWordLetters = userWord.split("");
+
+            /* check the user word letter match with the word target */
+//            for (int i = 0; i < 6; i++) {
+//                if (Main.wordle.contains(userWordLetters[i])) {
+//
+//                }
+//            }
+
+            /* reset current word */
+            userWord = "";
         }
     }
 }

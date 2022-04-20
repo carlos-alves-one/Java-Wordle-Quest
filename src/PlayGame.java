@@ -9,6 +9,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Locale;
 import java.util.Objects;
 
 /* declare and extend the class to include JFrame and Key Listener */
@@ -281,11 +282,9 @@ public class PlayGame extends JFrame implements ActionListener {
 
             System.out.println(">> Current Word: " + userWord);
         }
-        else {
-            if (!Objects.equals(keyPressed, " ENTER ")) {
+        else if (!Objects.equals(keyPressed, " ENTER ")) {
                 /* fill the grid with letter and update background color */
                 updateGrid(totalWords, totalLetters, keyPressed, "gray");
-            }
         }
 
         /* only add letters to the word  when is not ENTER or DELETE */
@@ -293,7 +292,6 @@ public class PlayGame extends JFrame implements ActionListener {
             keyPressed = keyPressed.toLowerCase();
             userWord += keyPressed.replaceAll(" ", "");
             System.out.println(">> Current Word: " + userWord);
-
         }
 
         /* check we pressed ENTER */
@@ -325,16 +323,16 @@ public class PlayGame extends JFrame implements ActionListener {
                         "Congratulations you found the Wordle");
             }
 
-            /* store in an array single letters from the word */
-            String[] userWordLetters = userWord.split("");
+            /* check all letter from the word */
+            for (int i = 0; i < 5; i++) {
 
-            // TODO...
-            /* check the user word letter match with the word target */
-//            for (int i = 0; i < 6; i++) {
-//                if (Main.wordle.contains(userWordLetters[i])) {
-//
-//                }
-//            }
+                /* check the user word letter match with the word target */
+                if (userWord.charAt(i) ==  Main.wordle.charAt(i)) {
+                    String userLetter = String.valueOf(userWord.charAt(i));
+                    String userLetterFinal = " " + userLetter.toUpperCase() + " ";
+                    updateGrid(totalWords, i, userLetterFinal, "green");
+                }
+            }
         }
         /* check we have a word with 5 letters */
         if (totalLetters < 5) {

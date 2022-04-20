@@ -326,11 +326,16 @@ public class PlayGame extends JFrame implements ActionListener {
             /* check all letter from the word */
             for (int i = 0; i < 5; i++) {
 
+                /* store current letter of the user word */
+                String userLetter = String.valueOf(userWord.charAt(i));
+                String userLetterFinal = " " + userLetter.toUpperCase() + " ";
+
                 /* check the user word letter match with the word target */
                 if (userWord.charAt(i) ==  Main.wordle.charAt(i)) {
-                    String userLetter = String.valueOf(userWord.charAt(i));
-                    String userLetterFinal = " " + userLetter.toUpperCase() + " ";
                     updateGrid(totalWords, i, userLetterFinal, "green");
+
+                } else if (Main.wordle.contains(userLetter)) {
+                    updateGrid(totalWords, i, userLetterFinal, "yellow");
                 }
             }
         }

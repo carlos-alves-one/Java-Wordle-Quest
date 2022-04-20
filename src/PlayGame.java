@@ -245,11 +245,15 @@ public class PlayGame extends JFrame implements ActionListener {
 
             letterBoxes[i][j].setText(letter);
 
-            if (Objects.equals(color, "gray")) {
-                letterBoxes[i][j].setBackground(Color.gray);
+            /* set background color of the letter */
+            if (Objects.equals(color, "yellow")) {
+                letterBoxes[i][j].setBackground(Color.yellow);
+            }
+            else if (Objects.equals(color, "green")) {
+                letterBoxes[i][j].setBackground(Color.green);
             }
             else {
-                letterBoxes[i][j].setBackground(Color.yellow);
+                letterBoxes[i][j].setBackground(Color.gray);
             }
         }
     }
@@ -280,7 +284,7 @@ public class PlayGame extends JFrame implements ActionListener {
         else {
             if (!Objects.equals(keyPressed, " ENTER ")) {
                 /* fill the grid with letter and update background color */
-                updateGrid(totalWords, totalLetters, keyPressed, "yellow");
+                updateGrid(totalWords, totalLetters, keyPressed, "gray");
             }
         }
 
@@ -289,7 +293,6 @@ public class PlayGame extends JFrame implements ActionListener {
             keyPressed = keyPressed.toLowerCase();
             userWord += keyPressed.replaceAll(" ", "");
             System.out.println(">> Current Word: " + userWord);
-
 
         }
 

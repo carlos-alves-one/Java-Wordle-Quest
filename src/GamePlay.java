@@ -326,6 +326,9 @@ public class GamePlay extends JFrame implements ActionListener {
                 if (userWord.charAt(i) ==  MainApp.wordle.charAt(i)) {
                     updateGrid(totalWords, i, userLetterFinal, "green");
 
+                    /* update score */
+                    playerScore += GameScore.valueOf(String.valueOf(totalWords)).getValueGreen();
+
                 } else if (MainApp.wordle.contains(userLetter)) {
                     updateGrid(totalWords, i, userLetterFinal, "yellow");
                 }

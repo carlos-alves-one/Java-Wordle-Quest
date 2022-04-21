@@ -297,6 +297,17 @@ public class PlayGame extends JFrame implements ActionListener {
         /* check we pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
 
+            /* boolean variable to help with score update */
+            boolean updateScore = true;
+
+            /* check the word from the user is in the dictionary */
+            if (!MainApp.dictionary.contains(userWord) && userWord.length() == 5) {
+                JOptionPane.showMessageDialog(null,
+                        "Word not in the dictionary - Please try again");
+                /* if word is not in the dictionary don't update score */
+                updateScore = false;
+            }
+
             /* check all letter from the word and update background color */
             for (int i = 0; i < userWord.length(); i++) {
 
@@ -304,14 +315,14 @@ public class PlayGame extends JFrame implements ActionListener {
                 String userLetter = String.valueOf(userWord.charAt(i));
                 String userLetterFinal = " " + userLetter.toUpperCase() + " ";
 
-                /* check the user word letter match with the word target */
-                if (userWord.charAt(i) ==  MainApp.wordle.charAt(i)) {
+                /* check the user word letter match with the word target and the score can be updated */
+                if (userWord.charAt(i) ==  MainApp.wordle.charAt(i) && updateScore) {
                     updateGrid(totalWords, i, userLetterFinal, "green");
 
                     /* update score of the player */
                     playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueGreen();
 
-                } else if (MainApp.wordle.contains(userLetter)) {
+                } else if (MainApp.wordle.contains(userLetter) && updateScore) {
                     updateGrid(totalWords, i, userLetterFinal, "yellow");
 
                     /* update score of the player */
@@ -326,6 +337,7 @@ public class PlayGame extends JFrame implements ActionListener {
             if (userWord.length() < 4 && totalWords < 5) {
                 JOptionPane.showMessageDialog(null,
                         "Invalid Word - Please fill the word with 5 letters");
+                updateScore = false;
             }
 
             /* check we have a word, but we don't have a match */

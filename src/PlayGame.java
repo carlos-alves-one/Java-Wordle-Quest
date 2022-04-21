@@ -12,7 +12,7 @@ import java.awt.event.*;
 import java.util.Objects;
 
 /* declare and extend the class to include JFrame and Key Listener */
-public class GamePlay extends JFrame implements ActionListener {
+public class PlayGame extends JFrame implements ActionListener {
 
     /* declare frame as global */
     JFrame frame;
@@ -36,7 +36,7 @@ public class GamePlay extends JFrame implements ActionListener {
     String namePlayer;
 
     /* declare default constructor for this class */
-    GamePlay() {
+    PlayGame() {
 
         /* pop up user to enter the name */
         namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
@@ -333,13 +333,13 @@ public class GamePlay extends JFrame implements ActionListener {
                     updateGrid(totalWords, i, userLetterFinal, "green");
 
                     /* update score of the player */
-                    playerScore += GameScore.valueOf(scoreGame[totalWords]).getValueGreen();
+                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueGreen();
 
                 } else if (MainApp.wordle.contains(userLetter)) {
                     updateGrid(totalWords, i, userLetterFinal, "yellow");
 
                     /* update score of the player */
-                    playerScore += GameScore.valueOf(scoreGame[totalWords]).getValueYellow();
+                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueYellow();
                 }
 
                 /* update title with score */

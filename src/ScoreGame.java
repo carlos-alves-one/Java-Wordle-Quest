@@ -6,7 +6,7 @@
  */
 
 /* declare and initialise the enum to score the game */
-public enum GameScore {
+public enum ScoreGame {
 
     /* instantiate the constants of the enum */
     score1(20,10),
@@ -21,7 +21,7 @@ public enum GameScore {
     private final int valueYellow;
 
     /* declare default constructor for this enum */
-    GameScore(int valueGreen, int valueYellow) {
+    ScoreGame(int valueGreen, int valueYellow) {
         this.valueGreen = valueGreen;
         this.valueYellow = valueYellow;
     }

@@ -316,20 +316,18 @@ public class PlayGame extends JFrame implements ActionListener {
             }
 
             /* check all letter from the word */
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < userWord.length(); i++) {
 
                 /* store current letter of the user word only we have letters stored */
-                if (userWord.length() > 0) {
-                    String userLetter = String.valueOf(userWord.charAt(i));
-                    String userLetterFinal = " " + userLetter.toUpperCase() + " ";
+                String userLetter = String.valueOf(userWord.charAt(i));
+                String userLetterFinal = " " + userLetter.toUpperCase() + " ";
 
-                    /* check the user word letter match with the word target */
-                    if (userWord.charAt(i) ==  Main.wordle.charAt(i)) {
-                        updateGrid(totalWords, i, userLetterFinal, "green");
+                /* check the user word letter match with the word target */
+                if (userWord.charAt(i) ==  Main.wordle.charAt(i)) {
+                    updateGrid(totalWords, i, userLetterFinal, "green");
 
-                    } else if (Main.wordle.contains(userLetter)) {
-                        updateGrid(totalWords, i, userLetterFinal, "yellow");
-                    }
+                } else if (Main.wordle.contains(userLetter)) {
+                    updateGrid(totalWords, i, userLetterFinal, "yellow");
                 }
             }
         }

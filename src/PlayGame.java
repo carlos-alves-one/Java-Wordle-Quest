@@ -9,7 +9,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Locale;
 import java.util.Objects;
 
 /* declare and extend the class to include JFrame and Key Listener */
@@ -117,8 +116,7 @@ public class PlayGame extends JFrame implements ActionListener {
         frame.setTitle("Player: " + namePlayer + " -->> Score: " + playerScore);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
-        frame.setSize(469,500);
-        //frame.addKeyListener(this);
+        frame.setSize(469,500);;
         frame.setVisible(true);
 
         /* set up position of the frame at the center of the screen */
@@ -265,7 +263,6 @@ public class PlayGame extends JFrame implements ActionListener {
 
         /* store key pressed by the user */
         String keyPressed = e.getActionCommand();
-        System.out.println(">> Key pressed: " + keyPressed);
 
         /* check we pressed DELETE */
         if(Objects.equals(keyPressed, " DELETE ")) {
@@ -279,8 +276,6 @@ public class PlayGame extends JFrame implements ActionListener {
             if (userWord.length() > 0) {
                 userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
             }
-
-            System.out.println(">> Current Word: " + userWord);
         }
         else if (!Objects.equals(keyPressed, " ENTER ")) {
                 /* fill the grid with letter and update background color */
@@ -291,13 +286,10 @@ public class PlayGame extends JFrame implements ActionListener {
         if (!Objects.equals(keyPressed, " ENTER ") && !Objects.equals(keyPressed, " DELETE ")) {
             keyPressed = keyPressed.toLowerCase();
             userWord += keyPressed.replaceAll(" ", "");
-            System.out.println(">> Current Word: " + userWord);
         }
 
         /* check we pressed ENTER */
-        if(Objects.equals(keyPressed, " ENTER ") || totalLetters == 4) {
-
-            System.out.println(">> Current Word: " + userWord);
+        if(Objects.equals(keyPressed, " ENTER ")) {
 
             /* validate we have a full word with 5 letters */
             if (userWord.length() < 4 && totalWords < 5) {
@@ -326,20 +318,22 @@ public class PlayGame extends JFrame implements ActionListener {
             /* check all letter from the word */
             for (int i = 0; i < 5; i++) {
 
-                /* store current letter of the user word */
-                String userLetter = String.valueOf(userWord.charAt(i));
-                String userLetterFinal = " " + userLetter.toUpperCase() + " ";
+                /* store current letter of the user word only we have letters stored */
+                if (userWord.length() > 0) {
+                    String userLetter = String.valueOf(userWord.charAt(i));
+                    String userLetterFinal = " " + userLetter.toUpperCase() + " ";
 
-                /* check the user word letter match with the word target */
-                if (userWord.charAt(i) ==  Main.wordle.charAt(i)) {
-                    updateGrid(totalWords, i, userLetterFinal, "green");
+                    /* check the user word letter match with the word target */
+                    if (userWord.charAt(i) ==  Main.wordle.charAt(i)) {
+                        updateGrid(totalWords, i, userLetterFinal, "green");
 
-                } else if (Main.wordle.contains(userLetter)) {
-                    updateGrid(totalWords, i, userLetterFinal, "yellow");
+                    } else if (Main.wordle.contains(userLetter)) {
+                        updateGrid(totalWords, i, userLetterFinal, "yellow");
+                    }
                 }
             }
         }
-        /* check we have a word with 5 letters */
+        /* check we have a word less than 5 letters */
         if (totalLetters < 5) {
             totalLetters++;
         }
@@ -349,7 +343,7 @@ public class PlayGame extends JFrame implements ActionListener {
             if (totalWords < 5) {
                 totalWords++;
             }
-            /* reset current word */
+            /* reset current user word */
             userWord = "";
         }
     }

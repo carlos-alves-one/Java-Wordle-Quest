@@ -119,7 +119,7 @@ public class PlayGame extends JFrame implements ActionListener {
 
         /* create and setup frame */
         frame = new JFrame();
-        frame.setTitle("Player: " + namePlayer + " -->> Score: " + playerScore);
+        frame.setTitle("## Player -->> " + namePlayer + " -->> " + playerScore + " Points");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
         frame.setSize(469,500);;
@@ -297,6 +297,31 @@ public class PlayGame extends JFrame implements ActionListener {
         /* check we pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
 
+            /* check all letter from the word and update background color */
+            for (int i = 0; i < userWord.length(); i++) {
+
+                /* store current letter of the user word only we have letters stored */
+                String userLetter = String.valueOf(userWord.charAt(i));
+                String userLetterFinal = " " + userLetter.toUpperCase() + " ";
+
+                /* check the user word letter match with the word target */
+                if (userWord.charAt(i) ==  MainApp.wordle.charAt(i)) {
+                    updateGrid(totalWords, i, userLetterFinal, "green");
+
+                    /* update score of the player */
+                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueGreen();
+
+                } else if (MainApp.wordle.contains(userLetter)) {
+                    updateGrid(totalWords, i, userLetterFinal, "yellow");
+
+                    /* update score of the player */
+                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueYellow();
+                }
+
+                /* update title with score */
+                frame.setTitle("## Player -->> " + namePlayer + " -->> " + playerScore + " Points");
+            }
+
             /* validate we have a full word with 5 letters */
             if (userWord.length() < 4 && totalWords < 5) {
                 JOptionPane.showMessageDialog(null,
@@ -319,31 +344,6 @@ public class PlayGame extends JFrame implements ActionListener {
             if(userWord.equals(MainApp.wordle)) {
                 JOptionPane.showMessageDialog(null,
                         "Congratulations you found the Wordle");
-            }
-
-            /* check all letter from the word */
-            for (int i = 0; i < userWord.length(); i++) {
-
-                /* store current letter of the user word only we have letters stored */
-                String userLetter = String.valueOf(userWord.charAt(i));
-                String userLetterFinal = " " + userLetter.toUpperCase() + " ";
-
-                /* check the user word letter match with the word target */
-                if (userWord.charAt(i) ==  MainApp.wordle.charAt(i)) {
-                    updateGrid(totalWords, i, userLetterFinal, "green");
-
-                    /* update score of the player */
-                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueGreen();
-
-                } else if (MainApp.wordle.contains(userLetter)) {
-                    updateGrid(totalWords, i, userLetterFinal, "yellow");
-
-                    /* update score of the player */
-                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueYellow();
-                }
-
-                /* update title with score */
-                frame.setTitle("Player: " + namePlayer + " -->> Score: " + playerScore);
             }
         }
         /* check we have a word less than 5 letters */

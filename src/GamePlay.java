@@ -26,14 +26,20 @@ public class GamePlay extends JFrame implements ActionListener {
     int totalLetters = 0;
     int totalWords = 0;
 
+    /* declare an array to locate the enum to work with the score */
+    String[] scoreGame = {"score1","score2","score3","score4","score5","score6"};
+
     /* declare variable to store the word from the user */
     String userWord = "";
+
+    /* declare player name variable */
+    String namePlayer;
 
     /* declare default constructor for this class */
     GamePlay() {
 
         /* pop up user to enter the name */
-        String namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
+        namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
 
         /* create label and set the text with position */
         JLabel labelTitle = new JLabel();
@@ -326,12 +332,18 @@ public class GamePlay extends JFrame implements ActionListener {
                 if (userWord.charAt(i) ==  MainApp.wordle.charAt(i)) {
                     updateGrid(totalWords, i, userLetterFinal, "green");
 
-                    /* update score */
-                    playerScore += GameScore.valueOf(String.valueOf(totalWords)).getValueGreen();
+                    /* update score of the player */
+                    playerScore += GameScore.valueOf(scoreGame[totalWords]).getValueGreen();
 
                 } else if (MainApp.wordle.contains(userLetter)) {
                     updateGrid(totalWords, i, userLetterFinal, "yellow");
+
+                    /* update score of the player */
+                    playerScore += GameScore.valueOf(scoreGame[totalWords]).getValueYellow();
                 }
+
+                /* update title with score */
+                frame.setTitle("Player: " + namePlayer + " -->> Score: " + playerScore);
             }
         }
         /* check we have a word less than 5 letters */

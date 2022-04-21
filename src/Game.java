@@ -77,7 +77,7 @@ public class Game extends JFrame implements KeyListener{
             frame.dispose();
 
             /* open new frame and play game */
-            new PlayGame();
+            new GamePlay();
         }
     }
 

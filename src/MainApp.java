@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main extends JPanel {
+public class MainApp extends JPanel {
 
     /* pretty colours for the output */
     public static final String TEXT_RED   = "\u001B[31m";

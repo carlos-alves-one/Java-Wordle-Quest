@@ -12,7 +12,7 @@ import java.awt.event.*;
 import java.util.Objects;
 
 /* declare and extend the class to include JFrame and Key Listener */
-public class PlayGame extends JFrame implements ActionListener {
+public class GamePlay extends JFrame implements ActionListener {
 
     /* declare frame as global */
     JFrame frame;
@@ -30,7 +30,7 @@ public class PlayGame extends JFrame implements ActionListener {
     String userWord = "";
 
     /* declare default constructor for this class */
-    PlayGame() {
+    GamePlay() {
 
         /* pop up user to enter the name */
         String namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
@@ -298,19 +298,19 @@ public class PlayGame extends JFrame implements ActionListener {
             }
 
             /* check we have a word, but we don't have a match */
-            if (totalLetters == 4 && !userWord.equals(Main.wordle)) {
+            if (totalLetters == 4 && !userWord.equals(MainApp.wordle)) {
                 JOptionPane.showMessageDialog(null,
                         "Wordle not found - Please enter another word");
             }
 
             /* check we have the last word, and we don't have a match */
-            if (totalWords > 4 && !userWord.equals(Main.wordle) && totalLetters > 0) {
+            if (totalWords > 4 && !userWord.equals(MainApp.wordle) && totalLetters > 0) {
                 JOptionPane.showMessageDialog(null,
                         "Unfortunately you did not found the Wordle");
             }
 
             /* check we have word match */
-            if(userWord.equals(Main.wordle)) {
+            if(userWord.equals(MainApp.wordle)) {
                 JOptionPane.showMessageDialog(null,
                         "Congratulations you found the Wordle");
             }
@@ -323,10 +323,10 @@ public class PlayGame extends JFrame implements ActionListener {
                 String userLetterFinal = " " + userLetter.toUpperCase() + " ";
 
                 /* check the user word letter match with the word target */
-                if (userWord.charAt(i) ==  Main.wordle.charAt(i)) {
+                if (userWord.charAt(i) ==  MainApp.wordle.charAt(i)) {
                     updateGrid(totalWords, i, userLetterFinal, "green");
 
-                } else if (Main.wordle.contains(userLetter)) {
+                } else if (MainApp.wordle.contains(userLetter)) {
                     updateGrid(totalWords, i, userLetterFinal, "yellow");
                 }
             }

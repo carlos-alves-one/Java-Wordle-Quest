@@ -119,7 +119,7 @@ public class PlayGame extends JFrame implements ActionListener {
 
         /* create and setup frame */
         frame = new JFrame();
-        frame.setTitle("## Player -->> " + namePlayer + " -->> " + playerScore + " Points");
+        frame.setTitle("Player: " + namePlayer + " -->> " + playerScore + " Points");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
         frame.setSize(469,500);;
@@ -330,7 +330,7 @@ public class PlayGame extends JFrame implements ActionListener {
                 }
 
                 /* update title with score */
-                frame.setTitle("## Player -->> " + namePlayer + " -->> " + playerScore + " Points");
+                frame.setTitle("Player: " + namePlayer + " -->> " + playerScore + " Points");
             }
 
             /* validate we have a full word with 5 letters */

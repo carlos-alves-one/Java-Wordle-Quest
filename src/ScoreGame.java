@@ -16,7 +16,7 @@ public enum ScoreGame {
     score5(12,6),
     score6(10,5);
 
-    /* declare variables to be assign with enum */
+    /* declare variables to be assigned with enum */
     private final int valueGreen;
     private final int valueYellow;
 

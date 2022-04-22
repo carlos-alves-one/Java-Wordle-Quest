@@ -273,6 +273,8 @@ public class PlayGame extends JFrame implements ActionListener {
         /* store key pressed by the user */
         String keyPressed = e.getActionCommand();
 
+        System.out.println("Total of letters: " + totalLetters);
+
         /* check the user pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
 
@@ -280,14 +282,14 @@ public class PlayGame extends JFrame implements ActionListener {
             updateScore = true;
 
             /* validate we have a full word with 5 letters */
-            if (userWord.length() < 4 && totalWords < 5) {
+            if (userWord.length() < 4 && totalWords < 4) {
                 JOptionPane.showMessageDialog(null,
                         "Invalid Word - Please fill the word with 5 letters");
                 updateScore = false;
             }
 
             /* check the word from the user is in the dictionary */
-            if (!MainApp.dictionary.contains(userWord) && userWord.length() == 5) {
+            if (!MainApp.dictionary.contains(userWord) && userWord.length() > 3) {
                 JOptionPane.showMessageDialog(null,
                         "Word not in the dictionary - Please try again");
                 /* if word is not in the dictionary don't update score */
@@ -295,38 +297,44 @@ public class PlayGame extends JFrame implements ActionListener {
             }
 
             /* check all letter from the word and update background color */
-            for (int i = 0; i < userWord.length(); i++) {
+            if (MainApp.dictionary.contains(userWord) && userWord.length() == 5) {
 
-                /* store current letter of the user word only we have letters stored */
-                String userLetter = String.valueOf(userWord.charAt(i));
-                String userLetterFinal = " " + userLetter.toUpperCase() + " ";
+                for (int i = 0; i < userWord.length(); i++) {
 
-                /* check the user word letter match with the word target and the score can be updated */
-                if (userWord.charAt(i) ==  MainApp.wordle.charAt(i) && updateScore) {
-                    updateGrid(totalWords, i, userLetterFinal, "green");
+                    /* store current letter of the user word only we have letters stored */
+                    String userLetter = String.valueOf(userWord.charAt(i));
+                    String userLetterFinal = " " + userLetter.toUpperCase() + " ";
 
-                    /* update score of the player */
-                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueGreen();
+                    /* check the user word letter match with the word target and the score can be updated */
+                    if (userWord.charAt(i) ==  MainApp.wordle.charAt(i) && updateScore) {
+                        updateGrid(totalWords, i, userLetterFinal, "green");
 
-                } else if (MainApp.wordle.contains(userLetter) && updateScore) {
-                    updateGrid(totalWords, i, userLetterFinal, "yellow");
+                        /* update score of the player */
+                        playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueGreen();
 
-                    /* update score of the player */
-                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueYellow();
+                    } else if (MainApp.wordle.contains(userLetter) && updateScore) {
+                        updateGrid(totalWords, i, userLetterFinal, "yellow");
+
+                        /* update score of the player */
+                        playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueYellow();
+                    }
+
+                    /* update title with score */
+                    frame.setTitle("Player: " + namePlayer + " -->> " + playerScore + " Points");
                 }
-
-                /* update title with score */
-                frame.setTitle("Player: " + namePlayer + " -->> " + playerScore + " Points");
             }
 
+
             /* check we have a word, but we don't have a match */
-            if (totalLetters == 4 && !userWord.equals(MainApp.wordle)) {
+            if (userWord.length() == 4 && !userWord.equals(MainApp.wordle) && MainApp.dictionary.contains(userWord)) {
                 JOptionPane.showMessageDialog(null,
                         "Wordle not found - Please enter another word");
             }
 
+            System.out.println("Total of words: " + totalWords);
+
             /* check we have the last word, and we don't have a match */
-            if (totalWords > 4 && !userWord.equals(MainApp.wordle) && totalLetters > 0) {
+            if (totalWords == 5 && !userWord.equals(MainApp.wordle)) {
                 JOptionPane.showMessageDialog(null,
                         "Unfortunately you did not found the Wordle");
             }

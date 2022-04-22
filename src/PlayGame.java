@@ -267,38 +267,24 @@ public class PlayGame extends JFrame implements ActionListener {
     /* method invoked when one of the buttons are pressed in the keyboard */
     public void actionPerformed(ActionEvent e) {
 
+        /* boolean variable to help with score update */
+        boolean updateScore;
+
         /* store key pressed by the user */
         String keyPressed = e.getActionCommand();
 
-        /* check we pressed DELETE */
-        if(Objects.equals(keyPressed, " DELETE ")) {
-
-            /* clear the grid with space and update background color */
-            updateGrid(totalWords, totalLetters = totalLetters > 0 ?
-                       totalLetters - 1 : totalLetters, " ", "gray");
-            totalLetters--;
-
-            /* update the word from the user */
-            if (userWord.length() > 0) {
-                userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
-            }
-        }
-        else if (!Objects.equals(keyPressed, " ENTER ")) {
-                /* fill the grid with letter and update background color */
-                updateGrid(totalWords, totalLetters, keyPressed, "gray");
-        }
-
-        /* only add letters to the word  when is not ENTER or DELETE */
-        if (!Objects.equals(keyPressed, " ENTER ") && !Objects.equals(keyPressed, " DELETE ")) {
-            keyPressed = keyPressed.toLowerCase();
-            userWord += keyPressed.replaceAll(" ", "");
-        }
-
-        /* check we pressed ENTER */
+        /* check the user pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
 
-            /* boolean variable to help with score update */
-            boolean updateScore = true;
+            /* update score */
+            updateScore = true;
+
+            /* validate we have a full word with 5 letters */
+            if (userWord.length() < 4 && totalWords < 5) {
+                JOptionPane.showMessageDialog(null,
+                        "Invalid Word - Please fill the word with 5 letters");
+                updateScore = false;
+            }
 
             /* check the word from the user is in the dictionary */
             if (!MainApp.dictionary.contains(userWord) && userWord.length() == 5) {
@@ -333,13 +319,6 @@ public class PlayGame extends JFrame implements ActionListener {
                 frame.setTitle("Player: " + namePlayer + " -->> " + playerScore + " Points");
             }
 
-            /* validate we have a full word with 5 letters */
-            if (userWord.length() < 4 && totalWords < 5) {
-                JOptionPane.showMessageDialog(null,
-                        "Invalid Word - Please fill the word with 5 letters");
-                updateScore = false;
-            }
-
             /* check we have a word, but we don't have a match */
             if (totalLetters == 4 && !userWord.equals(MainApp.wordle)) {
                 JOptionPane.showMessageDialog(null,
@@ -358,6 +337,31 @@ public class PlayGame extends JFrame implements ActionListener {
                         "Congratulations you found the Wordle");
             }
         }
+
+        /* check the user pressed DELETE */
+        if(Objects.equals(keyPressed, " DELETE ")) {
+
+            /* clear the grid with space and update background color */
+            updateGrid(totalWords, totalLetters = totalLetters > 0 ?
+                    totalLetters - 1 : totalLetters, " ", "gray");
+            totalLetters--;
+
+            /* update the word from the user */
+            if (userWord.length() > 0) {
+                userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
+            }
+        }
+        else if (!Objects.equals(keyPressed, " ENTER ")) {
+            /* fill the grid with letter and update background color */
+            updateGrid(totalWords, totalLetters, keyPressed, "gray");
+        }
+
+        /* only add letters to the word  when is not ENTER or DELETE */
+        if (!Objects.equals(keyPressed, " ENTER ") && !Objects.equals(keyPressed, " DELETE ")) {
+            keyPressed = keyPressed.toLowerCase();
+            userWord += keyPressed.replaceAll(" ", "");
+        }
+
         /* check we have a word less than 5 letters */
         if (totalLetters < 5) {
             totalLetters++;

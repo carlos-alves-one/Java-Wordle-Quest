@@ -268,10 +268,70 @@ public class PlayGame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         /* boolean variable to help with score update */
-        boolean updateScore;
+        boolean updateScore = true  ;
 
         /* store key pressed by the user */
         String keyPressed = e.getActionCommand();
+
+        /* check the user pressed DELETE */
+        if(Objects.equals(keyPressed, " DELETE ")) {
+
+            /* clear the grid with space and update background color */
+            updateGrid(totalWords, totalLetters = totalLetters > 0 ?
+                    totalLetters - 1 : totalLetters, " ", "gray");
+            totalLetters--;
+
+            /* update the word from the user */
+            if (userWord.length() > 0) {
+                userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
+            }
+        }
+
+        else if (!Objects.equals(keyPressed, " ENTER ")) {
+            /* fill the grid with letter and update background color */
+            updateGrid(totalWords, totalLetters, keyPressed, "gray");
+        }
+
+        /* only add letters to the word  when is not ENTER or DELETE */
+        if (!Objects.equals(keyPressed, " ENTER ") && !Objects.equals(keyPressed, " DELETE ")) {
+            keyPressed = keyPressed.toLowerCase();
+            userWord += keyPressed.replaceAll(" ", "");
+        }
+
+        /* check the word from the user is in the dictionary */
+        if (!MainApp.dictionary.contains(userWord) && userWord.length() == 5) {
+            JOptionPane.showMessageDialog(null,
+                    "Word not in the dictionary - Please try again");
+            totalLetters--;
+        }
+
+        /* check all letter from the word and update background color */
+        if (MainApp.dictionary.contains(userWord)) {
+
+            for (int i = 0; i < userWord.length(); i++) {
+
+                /* store current letter of the user word only we have letters stored */
+                String userLetter = String.valueOf(userWord.charAt(i));
+                String userLetterFinal = " " + userLetter.toUpperCase() + " ";
+
+                /* check the user word letter match with the word target and the score can be updated */
+                if (userWord.charAt(i) ==  MainApp.wordle.charAt(i) && updateScore) {
+                    updateGrid(totalWords, i, userLetterFinal, "green");
+
+                    /* update score of the player */
+                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueGreen();
+
+                } else if (MainApp.wordle.contains(userLetter) && updateScore) {
+                    updateGrid(totalWords, i, userLetterFinal, "yellow");
+
+                    /* update score of the player */
+                    playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueYellow();
+                }
+
+                /* update title with score */
+                frame.setTitle("Player: " + namePlayer + " -->> " + playerScore + " Points");
+            }
+        }
 
         /* check the user pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
@@ -287,46 +347,10 @@ public class PlayGame extends JFrame implements ActionListener {
                 totalLetters--;
             }
 
-            /* check the word from the user is in the dictionary */
-            if (!MainApp.dictionary.contains(userWord) && userWord.length() == 0) {
-                JOptionPane.showMessageDialog(null,
-                        "Word not in the dictionary - Please try again");
-                /* if word is not in the dictionary don't update score */
-                updateScore = false;
-                totalLetters--;
-            }
-
-            /* check all letter from the word and update background color */
-            if (MainApp.dictionary.contains(userWord) && userWord.length() == 5) {
-
-                for (int i = 0; i < userWord.length(); i++) {
-
-                    /* store current letter of the user word only we have letters stored */
-                    String userLetter = String.valueOf(userWord.charAt(i));
-                    String userLetterFinal = " " + userLetter.toUpperCase() + " ";
-
-                    /* check the user word letter match with the word target and the score can be updated */
-                    if (userWord.charAt(i) ==  MainApp.wordle.charAt(i) && updateScore) {
-                        updateGrid(totalWords, i, userLetterFinal, "green");
-
-                        /* update score of the player */
-                        playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueGreen();
-
-                    } else if (MainApp.wordle.contains(userLetter) && updateScore) {
-                        updateGrid(totalWords, i, userLetterFinal, "yellow");
-
-                        /* update score of the player */
-                        playerScore += ScoreGame.valueOf(scoreGame[totalWords]).getValueYellow();
-                    }
-
-                    /* update title with score */
-                    frame.setTitle("Player: " + namePlayer + " -->> " + playerScore + " Points");
-                }
-            }
 
 
             /* check we have a word, but we don't have a match */
-            if (userWord.length() == 4 && !userWord.equals(MainApp.wordle) && MainApp.dictionary.contains(userWord)) {
+            if (userWord.length() == 0 && !userWord.equals(MainApp.wordle) && MainApp.dictionary.contains(userWord)) {
                 JOptionPane.showMessageDialog(null,
                         "Wordle not found - Please enter another word");
             }
@@ -342,30 +366,6 @@ public class PlayGame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "Congratulations you found the Wordle");
             }
-        }
-
-        /* check the user pressed DELETE */
-        if(Objects.equals(keyPressed, " DELETE ")) {
-
-            /* clear the grid with space and update background color */
-            updateGrid(totalWords, totalLetters = totalLetters > 0 ?
-                    totalLetters - 1 : totalLetters, " ", "gray");
-            totalLetters--;
-
-            /* update the word from the user */
-            if (userWord.length() > 0) {
-                userWord = userWord.replace(userWord.substring(userWord.length()-1),"");
-            }
-        }
-        else if (!Objects.equals(keyPressed, " ENTER ")) {
-            /* fill the grid with letter and update background color */
-            updateGrid(totalWords, totalLetters, keyPressed, "gray");
-        }
-
-        /* only add letters to the word  when is not ENTER or DELETE */
-        if (!Objects.equals(keyPressed, " ENTER ") && !Objects.equals(keyPressed, " DELETE ")) {
-            keyPressed = keyPressed.toLowerCase();
-            userWord += keyPressed.replaceAll(" ", "");
         }
 
         /* check we have a word less than 5 letters */

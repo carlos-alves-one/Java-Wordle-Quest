@@ -358,8 +358,9 @@ public class PlayGame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "Unfortunately you did not found the Wordle");
 
+                return;
                 /* end of game ask user what want to do next */
-                endGame();
+                //endGame();
             }
 
             /* check we have word match */

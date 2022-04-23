@@ -308,6 +308,9 @@ public class PlayGame extends JFrame implements ActionListener {
         /* check all letter from the word and update background color */
         if (MainApp.dictionary.contains(userWord)) {
 
+            /* update score */
+            updateScore = true;
+
             for (int i = 0; i < userWord.length(); i++) {
 
                 /* store current letter of the user word only we have letters stored */
@@ -336,9 +339,6 @@ public class PlayGame extends JFrame implements ActionListener {
         /* check the user pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
 
-            /* update score */
-            updateScore = true;
-
             /* validate we have a full word with 5 letters */
             if (userWord.length() > 0 && userWord.length() < 5 && totalWords < 6) {
                 JOptionPane.showMessageDialog(null,
@@ -346,8 +346,6 @@ public class PlayGame extends JFrame implements ActionListener {
                 updateScore = false;
                 totalLetters--;
             }
-
-
 
             /* check we have a word, but we don't have a match */
             if (userWord.length() == 0 && !userWord.equals(MainApp.wordle) && MainApp.dictionary.contains(userWord)) {
@@ -359,6 +357,9 @@ public class PlayGame extends JFrame implements ActionListener {
             if (totalWords == 5 && !userWord.equals(MainApp.wordle)) {
                 JOptionPane.showMessageDialog(null,
                         "Unfortunately you did not found the Wordle");
+
+                /* end of game ask user what want to do next */
+                endGame();
             }
 
             /* check we have word match */
@@ -381,5 +382,17 @@ public class PlayGame extends JFrame implements ActionListener {
             /* reset current user word */
             userWord = "";
         }
+    }
+
+    /* show to user three options to start a new game, to end or show top five players */
+    public void endGame() {
+
+        /* create radio buttons and add to the frame */
+        JRadioButton newGame = new JRadioButton("Start a new game");
+        JRadioButton topGame = new JRadioButton("Top five players");
+        JRadioButton endGame = new JRadioButton("End of game");
+        frame.add(newGame);
+        frame.add(topGame);
+        frame.add(endGame);
     }
 }

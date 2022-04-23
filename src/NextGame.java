@@ -29,12 +29,23 @@ public class NextGame extends JFrame implements ActionListener{
 
         /* create radio buttons and add to the frame */
         JButton newGame = new JButton("Start a new game");
+        newGame.setFont(new Font("Clear Sans", Font.BOLD, 14));
+        newGame.setFocusable(false);
+        newGame.setBackground(new Color(245,149,66));
+
         JButton topGame = new JButton("Top five players");
+        topGame.setFont(new Font("Clear Sans", Font.BOLD, 14));
+        topGame.setFocusable(false);
+        topGame.setBackground(new Color(66,167,245));
+
         JButton endGame = new JButton("End of game");
+        endGame.setFont(new Font("Clear Sans", Font.BOLD, 14));
+        endGame.setFocusable(false);
+        endGame.setBackground(new Color(149,245,66));
+        
         this.add(newGame);
         this.add(topGame);
         this.add(endGame);
-        //this.pack();
         this.setVisible(true);
 
         /* show to user three options to start a new game, to end or show top five players */

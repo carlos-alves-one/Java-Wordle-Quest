@@ -358,9 +358,8 @@ public class PlayGame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "Unfortunately you did not found the Wordle");
 
-                return;
                 /* end of game ask user what want to do next */
-                //endGame();
+                new NextGame();
             }
 
             /* check we have word match */
@@ -383,17 +382,5 @@ public class PlayGame extends JFrame implements ActionListener {
             /* reset current user word */
             userWord = "";
         }
-    }
-
-    /* show to user three options to start a new game, to end or show top five players */
-    public void endGame() {
-
-        /* create radio buttons and add to the frame */
-        JRadioButton newGame = new JRadioButton("Start a new game");
-        JRadioButton topGame = new JRadioButton("Top five players");
-        JRadioButton endGame = new JRadioButton("End of game");
-        frame.add(newGame);
-        frame.add(topGame);
-        frame.add(endGame);
     }
 }

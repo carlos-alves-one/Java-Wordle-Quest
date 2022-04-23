@@ -38,6 +38,9 @@ public class PlayGame extends JFrame implements ActionListener {
     /* declare default constructor for this class */
     PlayGame() {
 
+        // TODO.. WORKING IN PROGRESS...
+        new NextGame();
+
         /* pop up user to enter the name */
         namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
 

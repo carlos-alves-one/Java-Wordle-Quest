@@ -38,9 +38,6 @@ public class PlayGame extends JFrame implements ActionListener {
     /* declare default constructor for this class */
     PlayGame() {
 
-        // TODO.. WORKING IN PROGRESS...
-        new NextGame();
-
         /* pop up user to enter the name */
         namePlayer = JOptionPane.showInputDialog("Please enter your name: ");
 
@@ -362,7 +359,7 @@ public class PlayGame extends JFrame implements ActionListener {
                         "Unfortunately you did not found the Wordle");
 
                 /* end of game ask user what want to do next */
-                new NextGame();
+                new MenuGame();
             }
 
             /* check we have word match */

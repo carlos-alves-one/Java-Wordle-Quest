@@ -65,10 +65,7 @@ public class MainApp extends JPanel {
         /* print the word in the console we are looking for */
         wordle = getTarget();
 
-        /* run game */
-        //new Game();
-
-        new NextGame();
+        new Game();
     }
 
     // use this method for selecting a word. It's important for marking that the word you have selected

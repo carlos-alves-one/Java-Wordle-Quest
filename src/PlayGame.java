@@ -273,8 +273,6 @@ public class PlayGame extends JFrame implements ActionListener {
         /* store key pressed by the user */
         String keyPressed = e.getActionCommand();
 
-        System.out.println("Total of letters: " + totalLetters);
-
         /* check the user pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
 
@@ -282,18 +280,20 @@ public class PlayGame extends JFrame implements ActionListener {
             updateScore = true;
 
             /* validate we have a full word with 5 letters */
-            if (userWord.length() < 4 && totalWords < 4) {
+            if (userWord.length() > 0 && userWord.length() < 5 && totalWords < 6) {
                 JOptionPane.showMessageDialog(null,
                         "Invalid Word - Please fill the word with 5 letters");
                 updateScore = false;
+                totalLetters--;
             }
 
             /* check the word from the user is in the dictionary */
-            if (!MainApp.dictionary.contains(userWord) && userWord.length() > 3) {
+            if (!MainApp.dictionary.contains(userWord) && userWord.length() == 0) {
                 JOptionPane.showMessageDialog(null,
                         "Word not in the dictionary - Please try again");
                 /* if word is not in the dictionary don't update score */
                 updateScore = false;
+                totalLetters--;
             }
 
             /* check all letter from the word and update background color */
@@ -330,8 +330,6 @@ public class PlayGame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "Wordle not found - Please enter another word");
             }
-
-            System.out.println("Total of words: " + totalWords);
 
             /* check we have the last word, and we don't have a match */
             if (totalWords == 5 && !userWord.equals(MainApp.wordle)) {
@@ -371,7 +369,7 @@ public class PlayGame extends JFrame implements ActionListener {
         }
 
         /* check we have a word less than 5 letters */
-        if (totalLetters < 5) {
+        if (userWord.length() < 5) {
             totalLetters++;
         }
         else {

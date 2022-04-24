@@ -349,6 +349,9 @@ public class PlayGame extends JFrame implements ActionListener {
         if(userWord.equals(MainApp.wordle)) {
             JOptionPane.showMessageDialog(null,
                     "Congratulations you found the Wordle");
+
+            /* end of game ask user what want to do next */
+            new MenuGame();
         }
 
         /* check the user pressed ENTER */

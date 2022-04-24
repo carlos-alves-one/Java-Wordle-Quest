@@ -336,6 +336,21 @@ public class PlayGame extends JFrame implements ActionListener {
             }
         }
 
+        /* check we have the last word, and we don't have a match */
+        if (totalWords == 5 && !userWord.equals(MainApp.wordle)) {
+            JOptionPane.showMessageDialog(null,
+                    "Unfortunately you did not found the Wordle");
+
+            /* end of game ask user what want to do next */
+            new MenuGame();
+        }
+
+        /* check we have word match */
+        if(userWord.equals(MainApp.wordle)) {
+            JOptionPane.showMessageDialog(null,
+                    "Congratulations you found the Wordle");
+        }
+
         /* check the user pressed ENTER */
         if(Objects.equals(keyPressed, " ENTER ")) {
 
@@ -345,27 +360,6 @@ public class PlayGame extends JFrame implements ActionListener {
                         "Invalid Word - Please fill the word with 5 letters");
                 updateScore = false;
                 totalLetters--;
-            }
-
-            /* check we have a word, but we don't have a match */
-            if (userWord.length() == 0 && !userWord.equals(MainApp.wordle) && MainApp.dictionary.contains(userWord)) {
-                JOptionPane.showMessageDialog(null,
-                        "Wordle not found - Please enter another word");
-            }
-
-            /* check we have the last word, and we don't have a match */
-            if (totalWords == 5 && !userWord.equals(MainApp.wordle)) {
-                JOptionPane.showMessageDialog(null,
-                        "Unfortunately you did not found the Wordle");
-
-                /* end of game ask user what want to do next */
-                new MenuGame();
-            }
-
-            /* check we have word match */
-            if(userWord.equals(MainApp.wordle)) {
-                JOptionPane.showMessageDialog(null,
-                        "Congratulations you found the Wordle");
             }
         }
 

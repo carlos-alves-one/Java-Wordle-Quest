@@ -22,7 +22,7 @@ public class MenuGame extends JFrame implements ActionListener{
 
         /* create and setup frame */
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(300,100);
+        this.setSize(300,70);
         this.setLayout(new GridLayout(1,3,10,10));
         this.setTitle(">> Press one button");
         this.setResizable(false); // prevents frame from being resized

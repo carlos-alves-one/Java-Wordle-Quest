@@ -337,7 +337,7 @@ public class PlayGame extends JFrame implements ActionListener {
         }
 
         /* check we have the last word, and we don't have a match */
-        if (totalWords == 5 && !userWord.equals(MainApp.wordle)) {
+        if (totalWords == 5 && userWord.length() == 5 && !userWord.equals(MainApp.wordle)) {
             JOptionPane.showMessageDialog(null,
                     "Unfortunately you did not found the Wordle");
 

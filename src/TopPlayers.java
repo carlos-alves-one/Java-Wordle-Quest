@@ -22,7 +22,7 @@ public class TopPlayers {
     public static void connect() {
 
         Connection conn = null;
-        
+
         try {
             // db parameters
             String url = "jdbc:sqlite:topPlayers.db";

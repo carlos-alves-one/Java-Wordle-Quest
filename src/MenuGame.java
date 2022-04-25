@@ -59,7 +59,9 @@ public class MenuGame extends JFrame implements ActionListener{
             System.exit(0);
         }
 
-        // TODO.. CALL ANOTHER CLASS AND CONNECT WITH SQL
-
+        /* check we press the top players button */
+        if (e.getSource() == endGame) {
+            new TopPlayers();
+        }
     }
 }

@@ -18,5 +18,31 @@ import java.sql.Statement;
 /* declare class to display top players */
 public class TopPlayers {
 
-    // TODO...
+    /* connect the database of top players */
+    public static void connect() {
+
+        Connection conn = null;
+        
+        try {
+            // db parameters
+            String url = "jdbc:sqlite:topPlayers.db";
+            // create a connection to the database
+            conn = DriverManager.getConnection(url);
+            System.out.println(">> Connection to database has been established");
+            Statement statement = conn.createStatement();
+            statement.execute("INSERT INTO players (name, score, dateGame)" +
+                    "VALUES ('Carlos', 100, '25/04/2022')");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
 }

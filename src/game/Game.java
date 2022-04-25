@@ -26,7 +26,7 @@ public class Game extends JFrame implements KeyListener{
     public Game() {
 
         /* declare image */
-        ImageIcon image = new ImageIcon("images/wordle.png");
+        ImageIcon image = new ImageIcon("src/images/wordle.png");
 
         /* create border for frame */
         Border border = BorderFactory.createLineBorder(Color.GREEN,3);

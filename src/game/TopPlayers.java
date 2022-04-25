@@ -27,7 +27,7 @@ public class TopPlayers {
 
         try {
             // db parameters
-            String url = "jdbc:sqlite:topPlayers.db";
+            String url = "jdbc:sqlite:src/databases/topPlayers.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             System.out.println(">> Connection to database has been established");

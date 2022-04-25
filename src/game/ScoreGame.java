@@ -1,13 +1,13 @@
 
-package game;/*
-
+/*
  * Goldsmiths University of London
  * Author...: Carlos Manuel de Oliveira Alves
  * Student..: cdeol003
  * Created..: 21/04/2022
  */
 
-/* declare and initialise the enum to score the game */
+/* declare package and initialise the enum to score the game */
+package game;
 public enum ScoreGame {
 
     /* instantiate the constants of the enum */

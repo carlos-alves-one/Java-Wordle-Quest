@@ -1,13 +1,13 @@
 
-package game;/*
-
+/*
  * Goldsmiths University of London
  * Author...: Carlos Manuel de Oliveira Alves
  * Student..: cdeol003
  * Created..: 25/04/2022
  */
 
-/* declare all libraries to be used with this class */
+/* declare package and all libraries to be used with this class */
+package game;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

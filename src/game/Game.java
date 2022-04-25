@@ -1,4 +1,6 @@
-/*
+
+package game;/*
+
  * Goldsmiths University of London
  * Author...: Carlos Manuel de Oliveira Alves
  * Student..: cdeol003
@@ -6,6 +8,8 @@
  */
 
 /* declare all libraries to be used with this class */
+import game.PlayGame;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -22,7 +26,7 @@ public class Game extends JFrame implements KeyListener{
     public Game() {
 
         /* declare image */
-        ImageIcon image = new ImageIcon("wordle.png");
+        ImageIcon image = new ImageIcon("images/wordle.png");
 
         /* create border for frame */
         Border border = BorderFactory.createLineBorder(Color.GREEN,3);

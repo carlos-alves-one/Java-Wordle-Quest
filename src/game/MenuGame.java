@@ -1,4 +1,6 @@
-/*
+
+package game;/*
+
  * Goldsmiths University of London
  * Author...: Carlos Manuel de Oliveira Alves
  * Student..: cdeol003
@@ -38,7 +40,7 @@ public class MenuGame extends JFrame implements ActionListener{
         topGame.setBackground(new Color(66,167,245));
         topGame.addActionListener(this);
 
-        endGame = new JButton("End of Game");
+        endGame = new JButton("End of game.Game");
         endGame.setFont(new Font("Clear Sans", Font.BOLD, 14));
         endGame.setFocusable(false);
         endGame.setBackground(new Color(149,245,66));
@@ -61,7 +63,7 @@ public class MenuGame extends JFrame implements ActionListener{
 
         /* check we press the top players button */
         if (e.getSource() == endGame) {
-            new TopPlayers();
+            TopPlayers.connectDB();
         }
     }
 }

@@ -1,4 +1,4 @@
-/*
+package game;/*
  * Goldsmiths University of London
  * Author...: Carlos Manuel de Oliveira Alves
  * Student..: cdeol003
@@ -6,6 +6,9 @@
  */
 
 /* declare all libraries to be used with this class */
+import game.MenuGame;
+import main.MainApp;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

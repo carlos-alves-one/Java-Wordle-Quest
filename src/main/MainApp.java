@@ -1,4 +1,6 @@
-/*
+
+package main;/*
+
  * Goldsmiths University of London
  * Author...: Carlos Manuel de Oliveira Alves
  * Student..: cdeol003
@@ -6,6 +8,8 @@
  */
 
 /* declare all libraries to be used on this class */
+import game.Game;
+
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,12 +38,12 @@ public class MainApp extends JPanel {
 
         // load in the two word lists
         try{
-            Scanner in_dict  = new Scanner(new File("gameDictionary.txt"));
+            Scanner in_dict  = new Scanner(new File("/files/gameDictionary.txt"));
             while(in_dict.hasNext()){
                 dictionary.add(in_dict.next());
             }
 
-            Scanner in_targets = new Scanner(new File("targetWords.txt"));
+            Scanner in_targets = new Scanner(new File("/files/targetWords.txt"));
             while(in_targets.hasNext()){
                 targetWords.add(in_targets.next());
             }

@@ -12,10 +12,8 @@ import game.Game;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class MainApp extends JPanel {
 
@@ -65,6 +63,13 @@ public class MainApp extends JPanel {
                 """);
         System.out.print(TEXT_BLUE);
 
+        /* to print date to record on the database at the end of the game */
+        GregorianCalendar gregorianCalendar = new GregorianCalendar();
+        gregorianCalendar.set(2022, Calendar.APRIL, 27);
+        Date date = gregorianCalendar.getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd, MMM, yyyy", Locale.ENGLISH);
+        System.out.println(simpleDateFormat.format(date)); // prints "27, Apr, 2022"
+        
         /* print the word in the console we are looking for */
         wordle = getTarget();
 

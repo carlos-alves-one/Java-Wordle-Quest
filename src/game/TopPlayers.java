@@ -9,8 +9,6 @@
 /* declare package and all libraries to be used with this class */
 package game;
 import java.sql.*;
-import java.text.SimpleDateFormat;
-//import java.text.SimpleDateFormat;
 
 /* declare class to display top players */
 public class TopPlayers {

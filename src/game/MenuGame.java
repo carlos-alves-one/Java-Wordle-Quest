@@ -6,7 +6,7 @@
  * Created..: 23/04/2022
  */
 
-/* declare package and all libraries to be used with this class */
+/* declare package, libraries and variables to be used with this class */
 package game;
 import javax.swing.*;
 import java.awt.*;

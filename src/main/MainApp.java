@@ -68,9 +68,9 @@ public class MainApp extends JPanel {
 
         /* print date to record the game details on the database at the end of the game */
         Date currentDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         dataGame = dateFormat.format(currentDate);
-        System.out.println(dataGame);
+        System.out.println(TEXT_GREEN + dataGame);
         
         /* print the word in the console we are looking for */
         wordle = getTarget();
@@ -84,7 +84,7 @@ public class MainApp extends JPanel {
         Random r = new Random();
         String target = targetWords.get(r.nextInt(targetWords.size()));
         //don't delete this line.
-        System.out.println("** The word we are looking for -->> " + target);
+        System.out.println(TEXT_BLUE + "** The word we are looking for -->> " + target);
         return target;
     }
 }

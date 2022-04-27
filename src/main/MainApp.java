@@ -63,7 +63,7 @@ public class MainApp extends JPanel {
                 """);
         System.out.print(TEXT_BLUE);
 
-        /* to print date to record on the database at the end of the game */
+        /* print date to record the game details on the database at the end of the game */
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
         gregorianCalendar.set(2022, Calendar.APRIL, 27);
         Date date = gregorianCalendar.getTime();

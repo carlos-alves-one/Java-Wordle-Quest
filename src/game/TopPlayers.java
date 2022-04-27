@@ -32,8 +32,8 @@ public class TopPlayers {
             conn = DriverManager.getConnection(url);
             System.out.println(">> Connection to database has been established");
             Statement statement = conn.createStatement();
-//            statement.execute("INSERT INTO topPlayers (name, score, dateGame)" +
-//                    "VALUES ('Carlos', 100, '25/04/2022')");
+            statement.execute("INSERT INTO players (name, score, game)" +
+                    "VALUES ('Mike B.1', 100, '27 April 2022')");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

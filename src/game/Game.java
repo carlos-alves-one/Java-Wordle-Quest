@@ -8,8 +8,6 @@
 
 /* declare package and all libraries to be used with this class */
 package game;
-import game.PlayGame;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;

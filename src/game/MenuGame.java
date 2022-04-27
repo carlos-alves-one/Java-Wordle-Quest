@@ -66,7 +66,7 @@ public class MenuGame extends JFrame implements ActionListener{
         }
 
         /* check we press the top players button */
-        if (e.getSource() == endGame) {
+        if (e.getSource() == topGame) {
             new TopPlayers(namePlayer, playerScore, String.valueOf(simpleDateFormat));
         }
     }

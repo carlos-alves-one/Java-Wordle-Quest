@@ -27,7 +27,7 @@ public class PlayGame extends JFrame implements ActionListener {
     static JPanel grid = new JPanel(new GridLayout(6,5,5,5));
 
     /* declare counters for score and control letters and words */
-    int playerScore = 0;
+    public static int playerScore = 0;
     int totalLetters = 0;
     int totalWords = 0;
 
@@ -38,7 +38,7 @@ public class PlayGame extends JFrame implements ActionListener {
     String userWord = "";
 
     /* declare player name variable */
-    String namePlayer;
+    public static String namePlayer;
 
     /* declare default constructor for this class */
     PlayGame() {

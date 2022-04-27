@@ -8,10 +8,6 @@
 
 /* declare package and all libraries to be used with this class */
 package game;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.Objects;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,6 +15,19 @@ import java.sql.Statement;
 
 /* declare class to display top players */
 public class TopPlayers {
+
+    /* declare instance variables */
+    public String name;
+    public int score;
+    public String game;
+
+    /* declare the construction function for this class */
+    public TopPlayers(String name, int score, String game) {
+        this.name = name;
+        this.score = score;
+        this.game = game;
+        connectDB();
+    }
 
     /* connect the database of top players */
     public static void connectDB() {
@@ -32,8 +41,8 @@ public class TopPlayers {
             conn = DriverManager.getConnection(url);
             System.out.println(">> Connection to database has been established");
             Statement statement = conn.createStatement();
-            statement.execute("INSERT INTO players (name, score, game)" +
-                    "VALUES ('Mike B.1', 100, '27 April 2022')");
+            statement.execute("INSERT INTO players (name, score, game)" + "VALUES (name, score, game)");
+            System.out.println(">> New record added to the database successfully");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -46,9 +55,5 @@ public class TopPlayers {
                 System.out.println(ex.getMessage());
             }
         }
-    }
-    // main method
-    public static void main(String[] args) {
-        connectDB();
     }
 }

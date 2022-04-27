@@ -24,6 +24,9 @@ public class MainApp extends JPanel {
     /* declare the word target */
     public static String wordle;
 
+    /* declare date variable */
+    public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd, MMM, yyyy", Locale.ENGLISH);
+
     // a list of all possible 5-letter words in English
     public static HashSet<String> dictionary = new HashSet<>();
 
@@ -67,7 +70,6 @@ public class MainApp extends JPanel {
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
         gregorianCalendar.set(2022, Calendar.APRIL, 27);
         Date date = gregorianCalendar.getTime();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd, MMM, yyyy", Locale.ENGLISH);
         System.out.println(simpleDateFormat.format(date)); // prints "27, Apr, 2022"
         
         /* print the word in the console we are looking for */

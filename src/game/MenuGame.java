@@ -10,7 +10,12 @@
 package game;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static game.PlayGame.namePlayer;
+import static game.PlayGame.playerScore;
+import static main.MainApp.simpleDateFormat;
 
 /* declare and extend the class to include JFrame and Key Listener */
 public class MenuGame extends JFrame implements ActionListener{
@@ -49,7 +54,6 @@ public class MenuGame extends JFrame implements ActionListener{
         this.add(topGame);
         this.add(endGame);
         this.setVisible(true);
-
     }
 
     @Override
@@ -63,7 +67,7 @@ public class MenuGame extends JFrame implements ActionListener{
 
         /* check we press the top players button */
         if (e.getSource() == endGame) {
-            TopPlayers.connectDB();
+            new TopPlayers(namePlayer, playerScore, String.valueOf(simpleDateFormat));
         }
     }
 }

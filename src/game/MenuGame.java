@@ -38,19 +38,16 @@ public class MenuGame extends JFrame implements ActionListener{
         this.setLocationRelativeTo(null);
 
         /* create buttons and add to the frame */
-
         topGame = new JButton("Top Players");
         topGame.setFont(new Font("Clear Sans", Font.BOLD, 14));
         topGame.setFocusable(false);
         topGame.setBackground(new Color(66,167,245));
         topGame.addActionListener(this);
-
         endGame = new JButton("End of game.Game");
         endGame.setFont(new Font("Clear Sans", Font.BOLD, 14));
         endGame.setFocusable(false);
         endGame.setBackground(new Color(149,245,66));
         endGame.addActionListener(this);
-
         this.add(topGame);
         this.add(endGame);
         this.setVisible(true);

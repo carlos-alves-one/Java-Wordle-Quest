@@ -31,7 +31,9 @@ public class TopPlayers {
 
         Connection conn = null;
 
+        /* handling with database connection errors */
         try {
+
             /* declare path for the database */
             String url = "jdbc:sqlite:src/databases/topPlayers.db";
 

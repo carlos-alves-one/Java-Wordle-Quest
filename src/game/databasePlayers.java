@@ -16,10 +16,19 @@ import java.awt.event.ActionListener;
 /* declare and extend the class to include JFrame and Key Listener */
 public class databasePlayers extends JFrame implements ActionListener {
 
+    /* declare frame as global */
+    JFrame frame;
+
+    /* declare default constructor for this class */
+    databasePlayers() {
+
+        
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        
+
     }
 }

@@ -79,9 +79,12 @@ public class databasePlayers extends JFrame implements ActionListener {
         frame.add(panelKeyboard, BorderLayout.SOUTH);
         frame.add(panelGrid, BorderLayout.CENTER);
 
-        
+        // TODO...
     }
 
+    public static void main(String[] args) {
+        new databasePlayers();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

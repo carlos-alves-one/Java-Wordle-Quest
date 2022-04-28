@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /* declare and extend the class to include JFrame and Key Listener */
-public class databasePlayers extends JFrame implements ActionListener {
+public class databasePlayers extends JFrame {
 
     /* declare frame as global */
     JFrame frame;
@@ -84,11 +84,5 @@ public class databasePlayers extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         new databasePlayers();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-
     }
 }

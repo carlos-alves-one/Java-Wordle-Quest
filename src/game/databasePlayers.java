@@ -273,7 +273,7 @@ public class databasePlayers extends JFrame {
             Statement statement = conn.createStatement();
 
             /* query database */
-            ResultSet results = statement.executeQuery("SELECT * FROM players");
+            ResultSet results = statement.executeQuery("SELECT * FROM players ORDER BY score DESC");
 
             /* print results from the query */
             System.out.println(">> Data from the database Top Players:");

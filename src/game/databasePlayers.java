@@ -19,6 +19,11 @@ public class databasePlayers extends JFrame {
     /* declare frame as global */
     JFrame frame;
 
+    /* instantiate the text fields to receive data from the database */
+    private final JTextField fieldName_1;
+    private final JTextField fieldScore_1;
+    private final JTextField fieldGame_1;
+
     /* declare default constructor for this class */
     databasePlayers() {
 
@@ -93,6 +98,13 @@ public class databasePlayers extends JFrame {
         frame.add(panelKeyboard, BorderLayout.SOUTH);
         frame.add(panelGrid, BorderLayout.CENTER);
 
+        /* add fields to the panel to receive data from the database */
+        fieldName_1  = new JFormattedTextField();
+        fieldScore_1 = new JFormattedTextField();
+        fieldGame_1  = new JFormattedTextField();
+        
+
+
         /* call method to connect to the database and query data */
         connectDB();
     }
@@ -110,7 +122,7 @@ public class databasePlayers extends JFrame {
 
             /* create a connection to the database */
             conn = DriverManager.getConnection(url);
-            System.out.println(">> Connection to database has been established");
+            System.out.println(">> Connection to database established");
 
             /* prepare statement to insert a new record */
             Statement statement = conn.createStatement();

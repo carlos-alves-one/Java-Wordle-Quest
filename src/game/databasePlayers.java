@@ -62,14 +62,22 @@ public class databasePlayers extends JFrame {
         labelFieldsDB.setText("PLAYER       SCORE       GAME");
         labelFieldsDB.setHorizontalTextPosition(JLabel.CENTER);
         labelFieldsDB.setVerticalTextPosition(JLabel.TOP);
+        JLabel labelFieldsDB2 = new JLabel();
+        labelFieldsDB2.setText("******       *****       ****");
+        labelFieldsDB2.setHorizontalTextPosition(JLabel.CENTER);
+        labelFieldsDB2.setVerticalTextPosition(JLabel.TOP);
 
         /* set color, font type and size of the text */
         labelFieldsDB.setForeground(Color.orange);
         labelFieldsDB.setFont(new Font("MV Bold", Font.BOLD,25));
+        labelFieldsDB2.setForeground(Color.orange);
+        labelFieldsDB2.setFont(new Font("MV Bold", Font.BOLD,35));
 
         /* set and display background color plus border of the label */
         labelFieldsDB.setBackground(Color.black);
         labelFieldsDB.setOpaque(true);
+        labelFieldsDB2.setBackground(Color.black);
+        labelFieldsDB2.setOpaque(true);
 
         /* add fields to the panel to receive data from the database */
         fieldsRow_1_Column_1  = new JLabel();
@@ -221,6 +229,7 @@ public class databasePlayers extends JFrame {
         /* add labels and fields to the panel */
         panelTitle.add(labelTitle);
         panelGrid.add(labelFieldsDB);
+        panelGrid.add(labelFieldsDB2);
         panelGrid.add(fieldsRow_1_Column_1);
         panelGrid.add(fieldsRow_1_Column_2);
         panelGrid.add(fieldsRow_1_Column_3);
@@ -243,7 +252,6 @@ public class databasePlayers extends JFrame {
         frame.add(panelEast, BorderLayout.EAST);
         frame.add(panelKeyboard, BorderLayout.SOUTH);
         frame.add(panelGrid, BorderLayout.CENTER);
-
     }
 
     /* declare method to connect the database of top players and query data */
@@ -281,7 +289,6 @@ public class databasePlayers extends JFrame {
                                            results.getInt("score")   + " * " +
                                            results.getString("name"));
             }
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -293,10 +300,7 @@ public class databasePlayers extends JFrame {
                 System.out.println(ex.getMessage());
             }
         }
-
-
     }
-
     /* created method for test propose only */
     public static void main(String[] args) {
         new databasePlayers();

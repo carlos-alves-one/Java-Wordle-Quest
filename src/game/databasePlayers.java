@@ -21,7 +21,7 @@ public class databasePlayers extends JFrame {
     JFrame frame;
 
     /* declare an array list to store data from the database */
-    public ArrayList<String> dataDatabase = new ArrayList();
+    public ArrayList<Player> dataDatabase = new ArrayList();
 
     /* instantiate the text fields to display data from the database */
     private final JTextField fieldName_1;

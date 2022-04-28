@@ -68,9 +68,20 @@ public class databasePlayers extends JFrame {
         fieldsRow_2.setBackground(Color.blue);
         fieldsRow_3.setBackground(Color.blue);
 
-        fieldsRow_1.setPreferredSize(new Dimension(420,40));
-        fieldsRow_2.setPreferredSize(new Dimension(420,40));
-        fieldsRow_3.setPreferredSize(new Dimension(420,40));
+        fieldsRow_1.setPreferredSize(new Dimension(178,40));
+        fieldsRow_2.setPreferredSize(new Dimension(70,40));
+        fieldsRow_3.setPreferredSize(new Dimension(120,40));
+
+        /* call method to connect to the database and query data */
+        connectDB();
+
+        fieldsRow_1.setText(dataDatabase.get(0));
+        fieldsRow_1.setFont(new Font("Consolas",Font.BOLD, 20));
+        fieldsRow_2.setText(dataDatabase.get(1));
+        fieldsRow_2.setFont(new Font("Consolas",Font.BOLD, 20));
+        fieldsRow_3.setText(dataDatabase.get(2));
+        fieldsRow_3.setFont(new Font("Consolas",Font.BOLD, 20));
+
 
         /* create panels */
         JPanel panelTitle = new JPanel();
@@ -118,8 +129,6 @@ public class databasePlayers extends JFrame {
         frame.add(panelKeyboard, BorderLayout.SOUTH);
         frame.add(panelGrid, BorderLayout.CENTER);
 
-        /* call method to connect to the database and query data */
-        connectDB();
     }
 
     /* declare method to connect the database of top players and query data */
@@ -148,17 +157,16 @@ public class databasePlayers extends JFrame {
             while (results.next()) {
 
                 /* store data from the database */
-                String dataResult = results.getString("game") + " * " +
-                                    results.getInt("score")   + " * " +
-                                    results.getString("name");
-                dataDatabase.add(dataResult);
+                dataDatabase.add(results.getString("name"));
+                dataDatabase.add(results.getString("score"));
+                dataDatabase.add(results.getString("game"));
 
                 /* print data on the console for test propose */
-//                System.out.println("** " + results.getString("game") + " * " +
-//                                           results.getInt("score")   + " * " +
-//                                           results.getString("name"));
+                System.out.println("** " + results.getString("game") + " * " +
+                                           results.getInt("score")   + " * " +
+                                           results.getString("name"));
             }
-            System.out.println(dataDatabase);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {

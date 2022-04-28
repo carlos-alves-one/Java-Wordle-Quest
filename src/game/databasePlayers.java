@@ -46,16 +46,16 @@ public class databasePlayers extends JFrame implements ActionListener {
 
         /* set background color of the panels */
         panelTitle.setBackground(Color.black);
-        panelWest.setBackground(Color.black);
-        panelEast.setBackground(Color.black);
+        panelWest.setBackground(Color.orange);
+        panelEast.setBackground(Color.orange);
         panelKeyboard.setBackground(Color.black);
-        panelGrid.setBackground(Color.black);
+        panelGrid.setBackground(Color.pink);
 
         /* set size of the panels */
         panelTitle.setPreferredSize(new Dimension(100,50));
         panelWest.setPreferredSize(new Dimension(20,50));
         panelEast.setPreferredSize(new Dimension(20,50));
-        panelKeyboard.setPreferredSize(new Dimension(200,200));
+        panelKeyboard.setPreferredSize(new Dimension(200,50));
         panelGrid.setPreferredSize(new Dimension(100,50));
 
         /* create and setup frame */

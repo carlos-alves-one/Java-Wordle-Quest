@@ -24,9 +24,10 @@ public class databasePlayers extends JFrame {
     public static ArrayList<String> dataDatabase = new ArrayList();
 
     /* instantiate the text fields to display data from the database */
-    private final JTextField fieldName_1;
-    private final JTextField fieldScore_1;
-    private final JTextField fieldGame_1;
+    private final JTextField fieldsRow_1;
+    private final JTextField fieldsRow_2;
+    private final JTextField fieldsRow_3;
+
 
     /* declare default constructor for this class */
     databasePlayers() {
@@ -58,6 +59,18 @@ public class databasePlayers extends JFrame {
         /* set and display background color plus border of the label */
         labelFieldsDB.setBackground(Color.black);
         labelFieldsDB.setOpaque(true);
+
+        /* add fields to the panel to receive data from the database */
+        fieldsRow_1  = new JFormattedTextField();
+        fieldsRow_2  = new JFormattedTextField();
+        fieldsRow_3  = new JFormattedTextField();
+        fieldsRow_1.setBackground(Color.blue);
+        fieldsRow_2.setBackground(Color.blue);
+        fieldsRow_3.setBackground(Color.blue);
+
+        fieldsRow_1.setPreferredSize(new Dimension(420,40));
+        fieldsRow_2.setPreferredSize(new Dimension(420,40));
+        fieldsRow_3.setPreferredSize(new Dimension(420,40));
 
         /* create panels */
         JPanel panelTitle = new JPanel();
@@ -91,9 +104,12 @@ public class databasePlayers extends JFrame {
         /* set up position of the frame at the center of the screen */
         frame.setLocationRelativeTo(null);
 
-        /* add labels to the panels */
+        /* add labels and fields to the panel */
         panelTitle.add(labelTitle);
         panelGrid.add(labelFieldsDB);
+        panelGrid.add(fieldsRow_1);
+        panelGrid.add(fieldsRow_2);
+        panelGrid.add(fieldsRow_3);
 
         /* add all panels to frame */
         frame.add(panelTitle, BorderLayout.NORTH);
@@ -101,16 +117,6 @@ public class databasePlayers extends JFrame {
         frame.add(panelEast, BorderLayout.EAST);
         frame.add(panelKeyboard, BorderLayout.SOUTH);
         frame.add(panelGrid, BorderLayout.CENTER);
-
-        /* add fields to the panel to receive data from the database */
-        fieldName_1  = new JFormattedTextField();
-        fieldScore_1 = new JFormattedTextField();
-        fieldGame_1  = new JFormattedTextField();
-        fieldName_1.setEditable(false);
-        fieldScore_1.setEditable(false);
-        fieldGame_1.setEditable(false);
-        fieldName_1.setBackground(Color.blue);
-        //fieldName_1.setText();
 
         /* call method to connect to the database and query data */
         connectDB();

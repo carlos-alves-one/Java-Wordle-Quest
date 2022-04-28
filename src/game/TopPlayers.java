@@ -26,7 +26,7 @@ public class TopPlayers {
         connectDB();
     }
 
-    /* declare method to connect the database of top players */
+    /* declare method to connect the database of top players and record data from the game */
     public static void connectDB() {
 
         Connection conn = null;

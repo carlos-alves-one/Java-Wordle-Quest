@@ -11,6 +11,7 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.*;
 
 /* declare and extend the class to include JFrame and Key Listener */
 public class databasePlayers extends JFrame {
@@ -92,8 +93,46 @@ public class databasePlayers extends JFrame {
         frame.add(panelKeyboard, BorderLayout.SOUTH);
         frame.add(panelGrid, BorderLayout.CENTER);
 
-        // TODO...
+
+
     }
+
+    /* declare method to connect the database of top players and query data */
+    public static void connectDB() {
+
+        Connection conn = null;
+
+        /* handling with database connection errors */
+        try {
+
+            /* declare path for the database */
+            String url = "jdbc:sqlite:src/databases/topPlayers.db";
+
+            /* create a connection to the database */
+            conn = DriverManager.getConnection(url);
+            System.out.println(">> Connection to database has been established");
+
+            /* prepare statement to insert a new record */
+            Statement statement = conn.createStatement();
+
+
+            System.out.println(">> ...");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
+    /* query database and print results */
+
 
     public static void main(String[] args) {
         new databasePlayers();

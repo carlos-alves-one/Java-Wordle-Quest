@@ -115,9 +115,16 @@ public class databasePlayers extends JFrame {
             /* prepare statement to insert a new record */
             Statement statement = conn.createStatement();
 
+            /* query database */
+            ResultSet results = statement.executeQuery("SELECT * FROM players");
 
-            System.out.println(">> ...");
-
+            /* print results from the query */
+            System.out.println(">> Data from the database Top Players:");
+            while (results.next()) {
+                System.out.println("** " + results.getString("game") + " * " +
+                                           results.getInt("score")   + " * " +
+                                           results.getString("name"));
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -131,9 +138,7 @@ public class databasePlayers extends JFrame {
         }
     }
 
-    /* query database and print results */
-
-
+    /* created method for test propose only */
     public static void main(String[] args) {
         new databasePlayers();
     }

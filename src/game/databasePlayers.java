@@ -35,6 +35,20 @@ public class databasePlayers extends JFrame {
         labelTitle.setBackground(Color.black);
         labelTitle.setOpaque(true);
 
+        /* create label for database fields */
+        JLabel labelFieldsDB = new JLabel();
+        labelFieldsDB.setText("PLAYER       SCORE       GAME");
+        labelFieldsDB.setHorizontalTextPosition(JLabel.CENTER);
+        labelFieldsDB.setVerticalTextPosition(JLabel.TOP);
+
+        /* set color, font type and size of the text */
+        labelFieldsDB.setForeground(Color.orange);
+        labelFieldsDB.setFont(new Font("MV Bold", Font.BOLD,25));
+
+        /* set and display background color plus border of the label */
+        labelFieldsDB.setBackground(Color.black);
+        labelFieldsDB.setOpaque(true);
+
         /* create panels */
         JPanel panelTitle = new JPanel();
         JPanel panelWest = new JPanel();
@@ -67,8 +81,9 @@ public class databasePlayers extends JFrame {
         /* set up position of the frame at the center of the screen */
         frame.setLocationRelativeTo(null);
 
-        /* add panels to the frame */
+        /* add labels to the panels */
         panelTitle.add(labelTitle);
+        panelGrid.add(labelFieldsDB);
 
         /* add all panels to frame */
         frame.add(panelTitle, BorderLayout.NORTH);

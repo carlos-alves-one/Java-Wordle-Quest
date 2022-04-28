@@ -10,6 +10,7 @@
 package game;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,6 +28,14 @@ public class databasePlayers extends JFrame implements ActionListener {
         labelTitle.setText("WORDLE");
         labelTitle.setHorizontalTextPosition(JLabel.CENTER);
         labelTitle.setVerticalTextPosition(JLabel.TOP);
+
+        /* set color, font type and size of the text */
+        labelTitle.setForeground(Color.GREEN);
+        labelTitle.setFont(new Font("MV Bold", Font.BOLD,36));
+
+        /* set and display background color plus border of the label */
+        labelTitle.setBackground(Color.black);
+        labelTitle.setOpaque(true);
 
         
     }

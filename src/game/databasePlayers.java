@@ -111,7 +111,7 @@ public class databasePlayers extends JFrame {
         fieldGame_1.setEditable(false);
         fieldName_1.setBackground(Color.blue);
         //fieldName_1.setText();
-        
+
         /* call method to connect to the database and query data */
         connectDB();
     }

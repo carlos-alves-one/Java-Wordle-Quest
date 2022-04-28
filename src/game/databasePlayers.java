@@ -220,7 +220,7 @@ public class databasePlayers extends JFrame {
         frame.setTitle("Wordle -->> Top Players");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false); // prevents frame from being resized
-        frame.setSize(469,500);;
+        frame.setSize(469,450);;
         frame.setVisible(true);
 
         /* set up position of the frame at the center of the screen */
@@ -277,7 +277,11 @@ public class databasePlayers extends JFrame {
 
             /* print results from the query */
             System.out.println(">> Data from the database Top Players:");
-            while (results.next()) {
+
+            /* declare counter to add into the array only 5 records */
+            int countRows = 0;
+
+            while (results.next() && countRows < 5) {
 
                 /* store data from the database */
                 dataDatabase.add(results.getString("name"));
@@ -288,6 +292,7 @@ public class databasePlayers extends JFrame {
                 System.out.println("** " + results.getString("game") + " * " +
                                            results.getInt("score")   + " * " +
                                            results.getString("name"));
+                countRows++;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

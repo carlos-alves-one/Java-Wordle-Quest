@@ -72,6 +72,13 @@ public class databasePlayers extends JFrame implements ActionListener {
         /* add panels to the frame */
         panelTitle.add(labelTitle);
 
+        /* add all panels to frame */
+        frame.add(panelTitle, BorderLayout.NORTH);
+        frame.add(panelWest, BorderLayout.WEST);
+        frame.add(panelEast, BorderLayout.EAST);
+        frame.add(panelKeyboard, BorderLayout.SOUTH);
+        frame.add(panelGrid, BorderLayout.CENTER);
+
         
     }
 

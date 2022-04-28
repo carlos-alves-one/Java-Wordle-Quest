@@ -19,7 +19,10 @@ public class databasePlayers extends JFrame {
     /* declare frame as global */
     JFrame frame;
 
-    /* instantiate the text fields to receive data from the database */
+    /* declare an array to store data from the database */
+    String[][][] dataDatabase;
+
+    /* instantiate the text fields to display data from the database */
     private final JTextField fieldName_1;
     private final JTextField fieldScore_1;
     private final JTextField fieldGame_1;
@@ -102,7 +105,11 @@ public class databasePlayers extends JFrame {
         fieldName_1  = new JFormattedTextField();
         fieldScore_1 = new JFormattedTextField();
         fieldGame_1  = new JFormattedTextField();
-        
+        fieldName_1.setEditable(false);
+        fieldScore_1.setEditable(false);
+        fieldGame_1.setEditable(false);
+        fieldName_1.setBackground(Color.blue);
+        fieldName_1.setText();
 
 
         /* call method to connect to the database and query data */

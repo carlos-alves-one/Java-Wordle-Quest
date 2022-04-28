@@ -23,7 +23,7 @@ public class Player {
         this.score = score;
         this.game = game;
     }
-    
+
     /* declare getters and setters */
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}

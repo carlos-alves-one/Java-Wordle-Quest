@@ -21,7 +21,7 @@ public class databasePlayers extends JFrame {
     JFrame frame;
 
     /* declare an array list to store data from the database */
-    public ArrayList<Player> dataDatabase = new ArrayList();
+    public static ArrayList<String> dataDatabase = new ArrayList();
 
     /* instantiate the text fields to display data from the database */
     private final JTextField fieldName_1;
@@ -110,9 +110,8 @@ public class databasePlayers extends JFrame {
         fieldScore_1.setEditable(false);
         fieldGame_1.setEditable(false);
         fieldName_1.setBackground(Color.blue);
-        fieldName_1.setText();
-
-
+        //fieldName_1.setText();
+        
         /* call method to connect to the database and query data */
         connectDB();
     }
@@ -143,13 +142,17 @@ public class databasePlayers extends JFrame {
             while (results.next()) {
 
                 /* store data from the database */
-
+                String dataResult = results.getString("game") + " * " +
+                                    results.getInt("score")   + " * " +
+                                    results.getString("name");
+                dataDatabase.add(dataResult);
 
                 /* print data on the console for test propose */
-                System.out.println("** " + results.getString("game") + " * " +
-                                           results.getInt("score")   + " * " +
-                                           results.getString("name"));
+//                System.out.println("** " + results.getString("game") + " * " +
+//                                           results.getInt("score")   + " * " +
+//                                           results.getString("name"));
             }
+            System.out.println(dataDatabase);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -161,6 +164,8 @@ public class databasePlayers extends JFrame {
                 System.out.println(ex.getMessage());
             }
         }
+
+
     }
 
     /* created method for test propose only */

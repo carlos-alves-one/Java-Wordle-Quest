@@ -30,6 +30,9 @@ public class databasePlayers extends JFrame {
     private final JLabel fieldsRow_2_Column_1;
     private final JLabel fieldsRow_2_Column_2;
     private final JLabel fieldsRow_2_Column_3;
+    private final JLabel fieldsRow_3_Column_1;
+    private final JLabel fieldsRow_3_Column_2;
+    private final JLabel fieldsRow_3_Column_3;
 
     /* declare default constructor for this class */
     databasePlayers() {
@@ -69,30 +72,49 @@ public class databasePlayers extends JFrame {
         fieldsRow_2_Column_1  = new JLabel();
         fieldsRow_2_Column_2  = new JLabel();
         fieldsRow_2_Column_3  = new JLabel();
+        fieldsRow_3_Column_1  = new JLabel();
+        fieldsRow_3_Column_2  = new JLabel();
+        fieldsRow_3_Column_3  = new JLabel();
+
         fieldsRow_1_Column_1.setBackground(Color.black);
         fieldsRow_1_Column_2.setBackground(Color.black);
         fieldsRow_1_Column_3.setBackground(Color.black);
         fieldsRow_2_Column_1.setBackground(Color.black);
         fieldsRow_2_Column_2.setBackground(Color.black);
         fieldsRow_2_Column_3.setBackground(Color.black);
+        fieldsRow_3_Column_1.setBackground(Color.black);
+        fieldsRow_3_Column_2.setBackground(Color.black);
+        fieldsRow_3_Column_3.setBackground(Color.black);
+
         fieldsRow_1_Column_1.setForeground(Color.gray);
         fieldsRow_1_Column_2.setForeground(Color.gray);
         fieldsRow_1_Column_3.setForeground(Color.gray);
         fieldsRow_2_Column_1.setForeground(Color.gray);
         fieldsRow_2_Column_2.setForeground(Color.gray);
         fieldsRow_2_Column_3.setForeground(Color.gray);
+        fieldsRow_3_Column_1.setForeground(Color.gray);
+        fieldsRow_3_Column_2.setForeground(Color.gray);
+        fieldsRow_3_Column_3.setForeground(Color.gray);
+
         fieldsRow_1_Column_1.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         fieldsRow_1_Column_2.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         fieldsRow_1_Column_3.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         fieldsRow_2_Column_1.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         fieldsRow_2_Column_2.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         fieldsRow_2_Column_3.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+        fieldsRow_3_Column_1.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+        fieldsRow_3_Column_2.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+        fieldsRow_3_Column_3.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+
         fieldsRow_1_Column_1.setPreferredSize(new Dimension(175,40));
         fieldsRow_1_Column_2.setPreferredSize(new Dimension(70,40));
         fieldsRow_1_Column_3.setPreferredSize(new Dimension(120,40));
         fieldsRow_2_Column_1.setPreferredSize(new Dimension(175,40));
         fieldsRow_2_Column_2.setPreferredSize(new Dimension(70,40));
         fieldsRow_2_Column_3.setPreferredSize(new Dimension(120,40));
+        fieldsRow_3_Column_1.setPreferredSize(new Dimension(175,40));
+        fieldsRow_3_Column_2.setPreferredSize(new Dimension(70,40));
+        fieldsRow_3_Column_3.setPreferredSize(new Dimension(120,40));
 
         /* call method to connect to the database and query data */
         connectDB();
@@ -109,6 +131,12 @@ public class databasePlayers extends JFrame {
         fieldsRow_2_Column_2.setFont(new Font("Consolas",Font.BOLD, 20));
         fieldsRow_2_Column_3.setText(dataDatabase.get(5));
         fieldsRow_2_Column_3.setFont(new Font("Consolas",Font.BOLD, 20));
+        fieldsRow_3_Column_1.setText(dataDatabase.get(6));
+        fieldsRow_3_Column_1.setFont(new Font("Consolas",Font.BOLD, 20));
+        fieldsRow_3_Column_2.setText(dataDatabase.get(7));
+        fieldsRow_3_Column_2.setFont(new Font("Consolas",Font.BOLD, 20));
+        fieldsRow_3_Column_3.setText(dataDatabase.get(8));
+        fieldsRow_3_Column_3.setFont(new Font("Consolas",Font.BOLD, 20));
 
         /* create panels */
         JPanel panelTitle = new JPanel();
@@ -151,6 +179,9 @@ public class databasePlayers extends JFrame {
         panelGrid.add(fieldsRow_2_Column_1);
         panelGrid.add(fieldsRow_2_Column_2);
         panelGrid.add(fieldsRow_2_Column_3);
+        panelGrid.add(fieldsRow_3_Column_1);
+        panelGrid.add(fieldsRow_3_Column_2);
+        panelGrid.add(fieldsRow_3_Column_3);
 
         /* add all panels to frame */
         frame.add(panelTitle, BorderLayout.NORTH);

@@ -24,6 +24,7 @@ public class TopPlayers {
         TopPlayers.score = score;
         TopPlayers.game = game;
         connectDB();
+        new databasePlayers();
     }
 
     /* declare method to connect the database of top players and record data from the game */

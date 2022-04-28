@@ -22,6 +22,12 @@ public class databasePlayers extends JFrame implements ActionListener {
     /* declare default constructor for this class */
     databasePlayers() {
 
+        /* create label and set the text with position */
+        JLabel labelTitle = new JLabel();
+        labelTitle.setText("WORDLE");
+        labelTitle.setHorizontalTextPosition(JLabel.CENTER);
+        labelTitle.setVerticalTextPosition(JLabel.TOP);
+
         
     }
 

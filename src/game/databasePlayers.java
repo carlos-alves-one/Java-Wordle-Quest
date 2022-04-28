@@ -24,10 +24,9 @@ public class databasePlayers extends JFrame {
     public static ArrayList<String> dataDatabase = new ArrayList();
 
     /* instantiate the text fields to display data from the database */
-    private final JTextField fieldsRow_1;
-    private final JTextField fieldsRow_2;
-    private final JTextField fieldsRow_3;
-
+    private final JLabel fieldsRow_1_Column_1;
+    private final JLabel fieldsRow_1_Column_2;
+    private final JLabel fieldsRow_1_Column_3;
 
     /* declare default constructor for this class */
     databasePlayers() {
@@ -61,27 +60,33 @@ public class databasePlayers extends JFrame {
         labelFieldsDB.setOpaque(true);
 
         /* add fields to the panel to receive data from the database */
-        fieldsRow_1  = new JFormattedTextField();
-        fieldsRow_2  = new JFormattedTextField();
-        fieldsRow_3  = new JFormattedTextField();
-        fieldsRow_1.setBackground(Color.blue);
-        fieldsRow_2.setBackground(Color.blue);
-        fieldsRow_3.setBackground(Color.blue);
+        fieldsRow_1_Column_1  = new JLabel();
+        fieldsRow_1_Column_2  = new JLabel();
+        fieldsRow_1_Column_3  = new JLabel();
+        fieldsRow_1_Column_1.setBackground(Color.black);
+        fieldsRow_1_Column_2.setBackground(Color.black);
+        fieldsRow_1_Column_3.setBackground(Color.black);
+        fieldsRow_1_Column_1.setForeground(Color.gray);
+        fieldsRow_1_Column_2.setForeground(Color.gray);
+        fieldsRow_1_Column_3.setForeground(Color.gray);
 
-        fieldsRow_1.setPreferredSize(new Dimension(178,40));
-        fieldsRow_2.setPreferredSize(new Dimension(70,40));
-        fieldsRow_3.setPreferredSize(new Dimension(120,40));
+        fieldsRow_1_Column_1.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+        fieldsRow_1_Column_2.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+        fieldsRow_1_Column_3.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+
+        fieldsRow_1_Column_1.setPreferredSize(new Dimension(175,40));
+        fieldsRow_1_Column_2.setPreferredSize(new Dimension(70,40));
+        fieldsRow_1_Column_3.setPreferredSize(new Dimension(120,40));
 
         /* call method to connect to the database and query data */
         connectDB();
 
-        fieldsRow_1.setText(dataDatabase.get(0));
-        fieldsRow_1.setFont(new Font("Consolas",Font.BOLD, 20));
-        fieldsRow_2.setText(dataDatabase.get(1));
-        fieldsRow_2.setFont(new Font("Consolas",Font.BOLD, 20));
-        fieldsRow_3.setText(dataDatabase.get(2));
-        fieldsRow_3.setFont(new Font("Consolas",Font.BOLD, 20));
-
+        fieldsRow_1_Column_1.setText(dataDatabase.get(0));
+        fieldsRow_1_Column_1.setFont(new Font("Consolas",Font.BOLD, 20));
+        fieldsRow_1_Column_2.setText(dataDatabase.get(1));
+        fieldsRow_1_Column_2.setFont(new Font("Consolas",Font.BOLD, 20));
+        fieldsRow_1_Column_3.setText(dataDatabase.get(2));
+        fieldsRow_1_Column_3.setFont(new Font("Consolas",Font.BOLD, 20));
 
         /* create panels */
         JPanel panelTitle = new JPanel();
@@ -92,10 +97,10 @@ public class databasePlayers extends JFrame {
 
         /* set background color of the panels */
         panelTitle.setBackground(Color.black);
-        panelWest.setBackground(Color.orange);
-        panelEast.setBackground(Color.orange);
+        panelWest.setBackground(Color.black);
+        panelEast.setBackground(Color.black);
         panelKeyboard.setBackground(Color.black);
-        panelGrid.setBackground(Color.pink);
+        panelGrid.setBackground(Color.black);
 
         /* set size of the panels */
         panelTitle.setPreferredSize(new Dimension(100,50));
@@ -118,9 +123,9 @@ public class databasePlayers extends JFrame {
         /* add labels and fields to the panel */
         panelTitle.add(labelTitle);
         panelGrid.add(labelFieldsDB);
-        panelGrid.add(fieldsRow_1);
-        panelGrid.add(fieldsRow_2);
-        panelGrid.add(fieldsRow_3);
+        panelGrid.add(fieldsRow_1_Column_1);
+        panelGrid.add(fieldsRow_1_Column_2);
+        panelGrid.add(fieldsRow_1_Column_3);
 
         /* add all panels to frame */
         frame.add(panelTitle, BorderLayout.NORTH);

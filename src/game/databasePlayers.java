@@ -58,6 +58,20 @@ public class databasePlayers extends JFrame implements ActionListener {
         panelKeyboard.setPreferredSize(new Dimension(200,200));
         panelGrid.setPreferredSize(new Dimension(100,50));
 
+        /* create and setup frame */
+        frame = new JFrame();
+        frame.setTitle("Wordle -->> Top Players");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false); // prevents frame from being resized
+        frame.setSize(469,500);;
+        frame.setVisible(true);
+
+        /* set up position of the frame at the center of the screen */
+        frame.setLocationRelativeTo(null);
+
+        /* add panels to the frame */
+        panelTitle.add(labelTitle);
+
         
     }
 

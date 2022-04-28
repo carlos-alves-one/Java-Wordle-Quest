@@ -93,8 +93,8 @@ public class databasePlayers extends JFrame {
         frame.add(panelKeyboard, BorderLayout.SOUTH);
         frame.add(panelGrid, BorderLayout.CENTER);
 
-
-
+        /* call method to connect to the database and query data */
+        connectDB();
     }
 
     /* declare method to connect the database of top players and query data */

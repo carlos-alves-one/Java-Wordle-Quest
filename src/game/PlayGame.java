@@ -8,7 +8,6 @@
 
 /* declare package and all libraries to be used with this class */
 package game;
-import game.MenuGame;
 import main.MainApp;
 
 import javax.swing.*;

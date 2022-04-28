@@ -12,6 +12,7 @@ package game;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 /* declare and extend the class to include JFrame and Key Listener */
 public class databasePlayers extends JFrame {
@@ -19,8 +20,8 @@ public class databasePlayers extends JFrame {
     /* declare frame as global */
     JFrame frame;
 
-    /* declare an array to store data from the database */
-    String[][][] dataDatabase;
+    /* declare an array list to store data from the database */
+    public ArrayList<String> dataDatabase = new ArrayList();
 
     /* instantiate the text fields to display data from the database */
     private final JTextField fieldName_1;
@@ -140,6 +141,11 @@ public class databasePlayers extends JFrame {
             /* print results from the query */
             System.out.println(">> Data from the database Top Players:");
             while (results.next()) {
+
+                /* store data from the database */
+
+
+                /* print data on the console for test propose */
                 System.out.println("** " + results.getString("game") + " * " +
                                            results.getInt("score")   + " * " +
                                            results.getString("name"));

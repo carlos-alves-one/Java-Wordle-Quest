@@ -62,8 +62,7 @@ public class databasePlayers extends JFrame {
         labelFieldsDB2.setBackground(Color.black);
         labelFieldsDB2.setOpaque(true);
 
-        /* add fields to the panel to receive data from the database */
-        /* instantiate the text fields to display data from the database */
+        /* instantiate the labels to display data from the database */
         JLabel fieldsRow_1_Column_1 = new JLabel();
         JLabel fieldsRow_1_Column_2 = new JLabel();
         JLabel fieldsRow_1_Column_3 = new JLabel();
@@ -259,10 +258,7 @@ public class databasePlayers extends JFrame {
             /* query database */
             ResultSet results = statement.executeQuery("SELECT * FROM players ORDER BY score DESC");
 
-            /* print results from the query */
-            System.out.println(">> Data from the database Top Players:");
-
-            /* declare counter to add into the array only 5 records */
+            /* declare counter to add into the array only 5 records from the query*/
             int countRows = 0;
 
             while (results.next() && countRows < 5) {
@@ -272,10 +268,6 @@ public class databasePlayers extends JFrame {
                 dataDatabase.add(results.getString("score"));
                 dataDatabase.add(results.getString("game"));
 
-                /* print data on the console for test propose */
-                System.out.println("** " + results.getString("game") + " * " +
-                                           results.getInt("score")   + " * " +
-                                           results.getString("name"));
                 countRows++;
             }
         } catch (SQLException e) {

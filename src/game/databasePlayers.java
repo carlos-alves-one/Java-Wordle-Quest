@@ -250,7 +250,6 @@ public class databasePlayers extends JFrame {
 
             /* create a connection to the database */
             conn = DriverManager.getConnection(url);
-            System.out.println(">> Connection to database established");
 
             /* prepare statement to insert a new record */
             Statement statement = conn.createStatement();
@@ -267,7 +266,6 @@ public class databasePlayers extends JFrame {
                 dataDatabase.add(results.getString("name"));
                 dataDatabase.add(results.getString("score"));
                 dataDatabase.add(results.getString("game"));
-
                 countRows++;
             }
         } catch (SQLException e) {
@@ -281,9 +279,5 @@ public class databasePlayers extends JFrame {
                 System.out.println(ex.getMessage());
             }
         }
-    }
-    /* created method for test propose only */
-    public static void main(String[] args) {
-        new databasePlayers();
     }
 }

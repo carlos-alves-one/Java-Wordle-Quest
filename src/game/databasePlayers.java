@@ -23,23 +23,6 @@ public class databasePlayers extends JFrame {
     /* declare an array list to store data from the database */
     public static ArrayList<String> dataDatabase = new ArrayList();
 
-    /* instantiate the text fields to display data from the database */
-    private final JLabel fieldsRow_1_Column_1;
-    private final JLabel fieldsRow_1_Column_2;
-    private final JLabel fieldsRow_1_Column_3;
-    private final JLabel fieldsRow_2_Column_1;
-    private final JLabel fieldsRow_2_Column_2;
-    private final JLabel fieldsRow_2_Column_3;
-    private final JLabel fieldsRow_3_Column_1;
-    private final JLabel fieldsRow_3_Column_2;
-    private final JLabel fieldsRow_3_Column_3;
-    private final JLabel fieldsRow_4_Column_1;
-    private final JLabel fieldsRow_4_Column_2;
-    private final JLabel fieldsRow_4_Column_3;
-    private final JLabel fieldsRow_5_Column_1;
-    private final JLabel fieldsRow_5_Column_2;
-    private final JLabel fieldsRow_5_Column_3;
-
     /* declare default constructor for this class */
     databasePlayers() {
 
@@ -80,21 +63,22 @@ public class databasePlayers extends JFrame {
         labelFieldsDB2.setOpaque(true);
 
         /* add fields to the panel to receive data from the database */
-        fieldsRow_1_Column_1  = new JLabel();
-        fieldsRow_1_Column_2  = new JLabel();
-        fieldsRow_1_Column_3  = new JLabel();
-        fieldsRow_2_Column_1  = new JLabel();
-        fieldsRow_2_Column_2  = new JLabel();
-        fieldsRow_2_Column_3  = new JLabel();
-        fieldsRow_3_Column_1  = new JLabel();
-        fieldsRow_3_Column_2  = new JLabel();
-        fieldsRow_3_Column_3  = new JLabel();
-        fieldsRow_4_Column_1  = new JLabel();
-        fieldsRow_4_Column_2  = new JLabel();
-        fieldsRow_4_Column_3  = new JLabel();
-        fieldsRow_5_Column_1  = new JLabel();
-        fieldsRow_5_Column_2  = new JLabel();
-        fieldsRow_5_Column_3  = new JLabel();
+        /* instantiate the text fields to display data from the database */
+        JLabel fieldsRow_1_Column_1 = new JLabel();
+        JLabel fieldsRow_1_Column_2 = new JLabel();
+        JLabel fieldsRow_1_Column_3 = new JLabel();
+        JLabel fieldsRow_2_Column_1 = new JLabel();
+        JLabel fieldsRow_2_Column_2 = new JLabel();
+        JLabel fieldsRow_2_Column_3 = new JLabel();
+        JLabel fieldsRow_3_Column_1 = new JLabel();
+        JLabel fieldsRow_3_Column_2 = new JLabel();
+        JLabel fieldsRow_3_Column_3 = new JLabel();
+        JLabel fieldsRow_4_Column_1 = new JLabel();
+        JLabel fieldsRow_4_Column_2 = new JLabel();
+        JLabel fieldsRow_4_Column_3 = new JLabel();
+        JLabel fieldsRow_5_Column_1 = new JLabel();
+        JLabel fieldsRow_5_Column_2 = new JLabel();
+        JLabel fieldsRow_5_Column_3 = new JLabel();
 
         fieldsRow_1_Column_1.setBackground(Color.black);
         fieldsRow_1_Column_2.setBackground(Color.black);

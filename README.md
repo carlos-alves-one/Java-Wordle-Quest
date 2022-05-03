@@ -1,2 +1,2 @@
 # Project Wordle
-Java Final Assignment - Goldsmiths University of London
+Final Assignment - Goldsmiths University of London

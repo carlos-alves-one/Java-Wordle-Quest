@@ -1,7 +1,7 @@
 
-# JavaWordleQuest
+# Java Wordle Quest
 
-JavaWordleQuest is a Java Swing application inspired by the popular game "Wordle." Developed as a final project for the module at Goldsmiths University of London, this project showcases the application of Java programming skills and the Swing library to create a user-friendly Wordle game.
+Java Wordle Quest is a Java Swing application inspired by the popular game "Wordle." Developed as a final project for the module at Goldsmiths University of London, this project showcases the application of Java programming skills and the Swing library to create a user-friendly Wordle game.
 
 ## Installation
 
@@ -31,7 +31,7 @@ Follow the on-screen instructions to play the game. The objective is to guess th
 
 ## Contributing
 
-Contributions to JavaWordleQuest are welcome. Please fork the repository and submit a pull request with your proposed changes.
+Contributions to Java Wordle Quest are welcome. Please fork the repository and submit a pull request with your proposed changes.
 
 ## License
 
@@ -41,4 +41,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Goldsmiths University of London for the educational opportunity.
 - The original Wordle game for inspiration.
-- [Your Name], for development and contributions.
+- Carlos Alves, for development and contributions.
